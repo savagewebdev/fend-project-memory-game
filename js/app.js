@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-
+const cards = ["diamond", "paper-plane", "anchor", "bolt", "cube", "leaf", "bicycle", "bomb", "diamond", "paper-plane", "anchor", "bolt", "cube", "leaf", "bicycle", "bomb"];
 
 /*
  * Display the cards on the page
@@ -11,13 +11,17 @@
  */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+function shuffle(array) { // A function named shuffle with a parameter named array. 
+    var currentIndex = array.length, temporaryValue, randomIndex; // Current index is defined as 
+    // the length of the array, the temporaryValue variable, and the randomindex variable; 
 
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
+    while (currentIndex !== 0) { // While there remain elements to shuffle
+    
+        randomIndex = Math.floor(Math.random() * currentIndex); // Pick a remaining element
         currentIndex -= 1;
-        temporaryValue = array[currentIndex];
+        
+        
+        temporaryValue = array[currentIndex]; // And swap it with the current element
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
@@ -25,6 +29,7 @@ function shuffle(array) {
     return array;
 }
 
+// OOB it up
 
 /*
  * set up the event listener for a card. If a card is clicked:
