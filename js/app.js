@@ -6,13 +6,18 @@ const cardsArray = ["diamond", "paper-plane", "anchor", "bolt", "cube", "leaf", 
 
 /*
  * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
+ *   - shuffle the list of cards using the provided "shuffle" method below // Call the shuffle function using .call()
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
 
 function displayCards() { // Use .call() to invoke shuffle when displaying cards on the page.
-    
+    const arrayLength = cardsArray.length;
+    for (let i = 0; i < arrayLength; i++) {
+        
+        
+        
+    }
 }
 
 
