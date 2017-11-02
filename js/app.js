@@ -11,6 +11,11 @@ const cardsArray = ["diamond", "paper-plane", "anchor", "bolt", "cube", "leaf", 
  *   - add each card's HTML to the page
  */
 
+function displayCards() { // Use .call() to invoke shuffle when displaying cards on the page.
+    
+}
+
+
 function shuffle(cardsArray) { 
     var currentIndex = cardsArray.length, temporaryValue, randomIndex; 
 
@@ -26,9 +31,16 @@ function shuffle(cardsArray) {
     return cardsArray;
 }
 
+
+
 /*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
+ * set up the event listener for a card. // Done
+*/
+$(".card").on('click', 'li', function(Event) {
+    $(event.target)
+}); 
+/*
+ *  -  If a card is clicked, display the card's symbol (put this functionality in another function that you call from this one)
  *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
  *  - if the list already has another card, check to see if the two cards match
  *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
