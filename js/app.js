@@ -1,7 +1,8 @@
 /*
  * Create a list that holds all of your cards // Done
  */
-const cards = ["diamond", "paper-plane", "anchor", "bolt", "cube", "leaf", "bicycle", "bomb", "diamond", "paper-plane", "anchor", "bolt", "cube", "leaf", "bicycle", "bomb"];
+
+const cardsArray = ["diamond", "paper-plane", "anchor", "bolt", "cube", "leaf", "bicycle", "bomb", "diamond", "paper-plane", "anchor", "bolt", "cube", "leaf", "bicycle", "bomb"];
 
 /*
  * Display the cards on the page
@@ -10,20 +11,19 @@ const cards = ["diamond", "paper-plane", "anchor", "bolt", "cube", "leaf", "bicy
  *   - add each card's HTML to the page
  */
 
-function shuffle(cards) { 
-    var currentIndex = cards.length, temporaryValue, randomIndex; 
+function shuffle(cardsArray) { 
+    var currentIndex = cardsArray.length, temporaryValue, randomIndex; 
 
     while (currentIndex !== 0) { // While there remain elements left to shuffle...
     
         randomIndex = Math.floor(Math.random() * currentIndex); // Pick a remaining element
         currentIndex -= 1;
         
-        temporaryValue = cards[currentIndex]; // And swap it with the current element
-        cards[currentIndex] = array[randomIndex];
-        cards[randomIndex] = temporaryValue;
+        temporaryValue = cardsArray[currentIndex]; // And swap it with the current element
+        cardsArray[currentIndex] = cardsArray[randomIndex];
+        cardsArray[randomIndex] = temporaryValue;
     }
-
-    return array;
+    return cardsArray;
 }
 
 /*
