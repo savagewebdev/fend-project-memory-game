@@ -15,7 +15,7 @@ function displayCards() { // Use .call() to invoke shuffle when displaying cards
     const arrayLength = cardsArray.length;
     for (let i = 0; i < arrayLength; i++) {
         
-        
+        // OOB a little action
         
     }
 }
