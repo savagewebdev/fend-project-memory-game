@@ -1,5 +1,5 @@
 /*
- * Create a list that holds all of your cards
+ * Create a list that holds all of your cards // Done
  */
 const cards = ["diamond", "paper-plane", "anchor", "bolt", "cube", "leaf", "bicycle", "bomb", "diamond", "paper-plane", "anchor", "bolt", "cube", "leaf", "bicycle", "bomb"];
 
@@ -10,26 +10,21 @@ const cards = ["diamond", "paper-plane", "anchor", "bolt", "cube", "leaf", "bicy
  *   - add each card's HTML to the page
  */
 
-// Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) { // A function named shuffle with a parameter named array. 
-    var currentIndex = array.length, temporaryValue, randomIndex; // Current index is defined as 
-    // the length of the array, the temporaryValue variable, and the randomindex variable; 
+function shuffle(cards) { 
+    var currentIndex = cards.length, temporaryValue, randomIndex; 
 
-    while (currentIndex !== 0) { // While there remain elements to shuffle
+    while (currentIndex !== 0) { // While there remain elements left to shuffle...
     
         randomIndex = Math.floor(Math.random() * currentIndex); // Pick a remaining element
         currentIndex -= 1;
         
-        
-        temporaryValue = array[currentIndex]; // And swap it with the current element
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
+        temporaryValue = cards[currentIndex]; // And swap it with the current element
+        cards[currentIndex] = array[randomIndex];
+        cards[randomIndex] = temporaryValue;
     }
 
     return array;
 }
-
-// OOB it up
 
 /*
  * set up the event listener for a card. If a card is clicked:
