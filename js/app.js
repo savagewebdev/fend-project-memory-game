@@ -1,25 +1,4 @@
-/*
- * Create a list that holds all of your cards // Done
- */
-
-const cardsArray = ["diamond", "paper-plane", "anchor", "bolt", "cube", "leaf", "bicycle", "bomb", "diamond", "paper-plane", "anchor", "bolt", "cube", "leaf", "bicycle", "bomb"];
-
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below // Call the shuffle function using .call()
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
-
-function displayCards() { // Use .call() to invoke shuffle when displaying cards on the page.
-    const arrayLength = cardsArray.length;
-    for (let i = 0; i < arrayLength; i++) {
-        
-        // OOB a little action
-        
-    }
-}
-
+const cardsArray = ["diamond", "paper-plane-o", "anchor", "bolt", "cube", "leaf", "bicycle", "bomb", "diamond", "paper-plane-o", "anchor", "bolt", "cube", "leaf", "bicycle", "bomb"];
 
 function shuffle(cardsArray) { 
     var currentIndex = cardsArray.length, temporaryValue, randomIndex; 
@@ -36,20 +15,58 @@ function shuffle(cardsArray) {
     return cardsArray;
 }
 
-
-
 /*
- * set up the event listener for a card. // Done
+
+Pseudoclassical Template:
+
+*** The Masterclass ***
+
+var Car = function(loc){ 
+    this.loc = loc;
+};
+
+++ The car constructor ++
+
+Car.prototype.move = function(){
+    this.loc++;
+};
+
+*** The subclass ***
+
+var Van = function(loc){ 
+    this.loc = Car.move; 
+};
+
+++ The moving van constructor ++
+
+Van.prototype.move = function() { 
+    this.loc++;
+};
+
+-- The actual instantizations --
+
+var zed = new Car(3); 
+zed.move();
+
+var amy = new Van(9);
+amy.move();
+
 */
+
+
+
+
+//
+
+function displayCards() { 
+    for (let i = 0; i < cardsArray[]; i++) { 
+        
+        
+        
+    }
+}
+
 $(".card").on('click', 'li', function(Event) {
     $(event.target)
 }); 
-/*
- *  -  If a card is clicked, display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
+
