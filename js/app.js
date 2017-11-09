@@ -1,12 +1,27 @@
+const cardsArray = [
+    { symbol: "diamond", name: "fa fa-diamond" }, // 1
+    { symbol: "paper-plane-o", name: "fa fa-paper-plane-o" }, // 2
+    { symbol: "anchor", name: "fa fa-anchor" }, // 3
+    { symbol: "bolt", name: "fa fa-bolt" }, // 4
+    { symbol: "cube", name: "fa fa-cube" }, // 5
+    { symbol: "anchor", name: "fa fa-anchor" }, // 6 
+    { symbol: "leaf", name: "fa fa-leaf" }, // 7
+    { symbol: "bicycle", name: "fa fa-bicycle" }, // 8
+    { symbol: "diamond", name: "fa fa-diamond" }, // 9
+    { symbol: "bomb", name: "fa fa-bomb" }, // 10
+    { symbol: "leaf", name: "fa fa-leaf" }, // 11
+    { symbol: "bomb", name: "fa fa-bomb" }, // 12
+    { symbol: "bolt", name: "fa fa-bolt" }, // 13
+    { symbol: "bicycle", name: "fa fa-bicycle" }, // 14
+    { symbol: "paper-plane-o", name: "fa fa-paper-plane-o" }, // 15
+    { symbol: "cube", name: "fa fa-cube" } // 16
+];
+
 function randomize() {
     $(".restart").on('click', 'i', function(event) {
         
     })
 }
-
-
-
-const cardsArray = $;
 
 function shuffle(cardsArray) { 
     var currentIndex = cardsArray.length, temporaryValue, randomIndex; 
