@@ -1,4 +1,12 @@
-const cardsArray = ["diamond", "paper-plane-o", "anchor", "bolt", "cube", "leaf", "bicycle", "bomb", "diamond", "paper-plane-o", "anchor", "bolt", "cube", "leaf", "bicycle", "bomb"];
+function randomize() {
+    $(".restart").on('click', 'i', function(event) {
+        
+    })
+}
+
+
+
+const cardsArray = $;
 
 function shuffle(cardsArray) { 
     var currentIndex = cardsArray.length, temporaryValue, randomIndex; 
