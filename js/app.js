@@ -17,12 +17,6 @@ const cardsArray = [
     { symbol: "cube", name: "fa fa-cube" } // 16
 ];
 
-function randomize() {
-    $(".restart").on('click', 'i', function(event) {
-        
-    })
-}
-
 function shuffle(cardsArray) { 
     var currentIndex = cardsArray.length, temporaryValue, randomIndex; 
 
@@ -37,6 +31,15 @@ function shuffle(cardsArray) {
     }
     return cardsArray;
 }
+
+function randomize() {
+    $(".restart").on('click', 'i', function(event) {
+    	event.preventDefault(); 
+        shuffle(cardsArray);
+        
+    });
+}
+
 
 /*
 
