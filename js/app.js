@@ -37,6 +37,9 @@ function randomize() {
     	event.preventDefault(); 
         shuffle(cardsArray);
         
+        
+        
+        
     });
 }
 
@@ -82,11 +85,12 @@ amy.move();
 
 
 
-//
+// Get something going that displays the cards within the memory game, so that the remaining portion can be effectively hacked.
 
 function displayCards() { 
+    // variable equaling array.length;
     for (let i = 0; i < cardsArray[]; i++) { 
-        
+        // do something that pertains to each iteration within (myArray[i]);
         
         
     }
