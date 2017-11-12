@@ -1,20 +1,20 @@
 const cardsArray = [
-    { symbol: "diamond", name: "fa fa-diamond" }, // 1
-    { symbol: "paper-plane-o", name: "fa fa-paper-plane-o" }, // 2
-    { symbol: "anchor", name: "fa fa-anchor" }, // 3
-    { symbol: "bolt", name: "fa fa-bolt" }, // 4
-    { symbol: "cube", name: "fa fa-cube" }, // 5
-    { symbol: "anchor", name: "fa fa-anchor" }, // 6 
-    { symbol: "leaf", name: "fa fa-leaf" }, // 7
-    { symbol: "bicycle", name: "fa fa-bicycle" }, // 8
-    { symbol: "diamond", name: "fa fa-diamond" }, // 9
-    { symbol: "bomb", name: "fa fa-bomb" }, // 10
-    { symbol: "leaf", name: "fa fa-leaf" }, // 11
-    { symbol: "bomb", name: "fa fa-bomb" }, // 12
-    { symbol: "bolt", name: "fa fa-bolt" }, // 13
-    { symbol: "bicycle", name: "fa fa-bicycle" }, // 14
-    { symbol: "paper-plane-o", name: "fa fa-paper-plane-o" }, // 15
-    { symbol: "cube", name: "fa fa-cube" } // 16
+    { name: "fa fa-diamond" }, // 1
+    { name: "fa fa-paper-plane-o" }, // 2
+    { name: "fa fa-anchor" }, // 3
+    { name: "fa fa-bolt" }, // 4
+    { name: "fa fa-cube" }, // 5
+    { name: "fa fa-anchor" }, // 6 
+    { name: "fa fa-leaf" }, // 7
+    { name: "fa fa-bicycle" }, // 8
+    { name: "fa fa-diamond" }, // 9
+    { name: "fa fa-bomb" }, // 10
+    { name: "fa fa-leaf" }, // 11
+    { name: "fa fa-bomb" }, // 12
+    { name: "fa fa-bolt" }, // 13
+    { name: "fa fa-bicycle" }, // 14
+    { name: "fa fa-paper-plane-o" }, // 15
+    { name: "fa fa-cube" } // 16
 ];
 
 function shuffle(cardsArray) { 
@@ -88,8 +88,8 @@ amy.move();
 // Get something going that displays the cards within the memory game, so that the remaining portion can be effectively hacked.
 
 function displayCards() { 
-    // variable equaling array.length;
-    for (let i = 0; i < cardsArray[]; i++) { 
+    const countDown = cardsArray.length;
+    for (let i = 0; i < countDown; i++) { 
         // do something that pertains to each iteration within (myArray[i]);
         
         
