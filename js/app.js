@@ -37,9 +37,17 @@ function randomize() {
     	event.preventDefault(); 
         shuffle(cardsArray);
         
+        $.each(cardsArray, function(name, value) {
+            value.text();
+            
+            $(".card").append("<i> </i>");
+        });
+        
     });
 }
 
+//$(".card").on('click', 'li', function(Event) {  event listener code
+//    $(event.target)
 
 /*
 
@@ -84,33 +92,24 @@ amy.move();
 
 // Get something going that displays the cards within the memory game, so that the remaining portion can be effectively hacked.
 
-$.each(cardsArray, function(name, value) {
-    value.text();
-    
-    $(".card").append("<i> </i>" + );
-});
 
-function displayCards() { 
-    const countDown = cardsArray.length;
-    for (let i = 0; i < countDown; i++) { 
-        let text.cardsArray[i];
-    
-    
-    
-     text = $(this).text ( );   
-    
-     $(this).text(text + “ “ + number); 
-    
-     $(‘p’).each(numberAdder);
-    
+
+//function displayCards() { 
+//    const countDown = cardsArray.length;
+//    for (let i = 0; i < countDown; i++) { 
+//        let text.cardsArray[i];
+//    
+//    
+//    
+//     text = $(this).text ( );   
+//    
+//     $(this).text(text + “ “ + number); 
+//    
+//     $(‘p’).each(numberAdder);
+//    
     
 
         // do something that pertains to each iteration within (myArray[i]);
 //         $(".card).on;
-    }
-};
 
-$(".card").on('click', 'li', function(Event) {  event listener code
-    $(event.target)
-}); 
 
