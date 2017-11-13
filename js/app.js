@@ -38,17 +38,16 @@ function randomize() {
         shuffle(cardsArray);
         
         $.each(cardsArray, function(name, value) {
-            value.text();
-            
-            $(".card").append("<i> </i>");
+            let symBol = value.text();
+            $(".card").attr("i", symBol());
         });
-        
     });
+    return randomize();
 }
 
-//$(".card").on('click', 'li', function(Event) {  event listener code
-//    $(event.target)
-
+$(".card").on('click', function(Event) {  //event listener code
+    $(event.target).attr('i', " " + "open show");
+}
 /*
 
 Pseudoclassical Template:
