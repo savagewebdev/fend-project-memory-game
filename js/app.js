@@ -19,16 +19,16 @@ function shuffle(cardsArray) {
     return cardsArray;
 }
 
-function randomize() {
-    $(".restart").on('click', function(event) {
-    	event.preventDefault(); 
-        shuffle(cardsArray);
-    });
-    return randomize;
-}
+//function randomize() {
+//    $(".restart").on('click', function(event) {
+//    	event.preventDefault(); 
+//        shuffle(cardsArray);
+//    });
+//    return randomize;
+//}
 
 $(".card").on('click', function(Event) {  //event listener code
-    $(event.target).attr('i', " " + "open show");
+    $(event.target)..addClass(this.text + "open show");
 }
 /*
 
