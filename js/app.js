@@ -1,21 +1,9 @@
-const cardsArray = [
-    { name: "fa fa-diamond" }, // 1
-    { name: "fa fa-paper-plane-o" }, // 2
-    { name: "fa fa-anchor" }, // 3
-    { name: "fa fa-bolt" }, // 4
-    { name: "fa fa-cube" }, // 5
-    { name: "fa fa-anchor" }, // 6 
-    { name: "fa fa-leaf" }, // 7
-    { name: "fa fa-bicycle" }, // 8
-    { name: "fa fa-diamond" }, // 9
-    { name: "fa fa-bomb" }, // 10
-    { name: "fa fa-leaf" }, // 11
-    { name: "fa fa-bomb" }, // 12
-    { name: "fa fa-bolt" }, // 13
-    { name: "fa fa-bicycle" }, // 14
-    { name: "fa fa-paper-plane-o" }, // 15
-    { name: "fa fa-cube" } // 16
-];
+const cardsArray = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"];
+
+$.each(cardsArray, function(name, value) {
+    let symBol = this.text();
+    $(".card").attr("i", symBol());
+});
 
 function shuffle(cardsArray) { 
     var currentIndex = cardsArray.length, temporaryValue, randomIndex; 
@@ -37,10 +25,7 @@ function randomize() {
     	event.preventDefault(); 
         shuffle(cardsArray);
         
-        $.each(cardsArray, function(name, value) {
-            let symBol = value.text();
-            $(".card").attr("i", symBol());
-        });
+        
     });
     return randomize();
 }
