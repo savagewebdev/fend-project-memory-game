@@ -1,8 +1,7 @@
 const cardsArray = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"];
 
-$.each(cardsArray, function(name, value) {
-    let symBol = this.text();
-    $(".card").attr("i", symBol());
+$.each(cardsArray, function() {
+    $(".card i").addClass(this.text());
 });
 
 function shuffle(cardsArray) { 
@@ -21,13 +20,11 @@ function shuffle(cardsArray) {
 }
 
 function randomize() {
-    $(".restart").on('click', 'i', function(event) {
+    $(".restart").on('click', function(event) {
     	event.preventDefault(); 
         shuffle(cardsArray);
-        
-        
     });
-    return randomize();
+    return randomize;
 }
 
 $(".card").on('click', function(Event) {  //event listener code
