@@ -1,5 +1,7 @@
 const cardsArray = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"];
 
+const unorganizedList = $("ul.deck");
+
 function shuffle(cardsArray) { 
     var currentIndex = cardsArray.length, temporaryValue, randomIndex; 
 
@@ -15,9 +17,25 @@ function shuffle(cardsArray) {
     return cardsArray;
 }
 
-$.each( cardsArray, function(index, value) {
-    $(".card i").addClass(this.text);
+    shuffle(cardsArray);
+    
+const cardsTable = cardsArray.map(function(index, value) {
+    const li = $("li")
+        .addClass("card")
+        .appendTo("ul.deck")
+
+    const i = $("i")
+        .addClass(value)
+        .appendTo("ul.deck.li")
 });
+
+//$.each(cardsArray, function(index, value) { // For each iteration of the array
+//    $(".card i").each(function() { // iterate through the cards
+//    });
+//    this.addClass(value); // do the magic
+//});
+
+
 
 //function randomize() {
 //    $(".restart").on('click', function(event) {
@@ -28,7 +46,7 @@ $.each( cardsArray, function(index, value) {
 //}
 
 $(".card").on('click', function(Event) {  //event listener code
-    $(event.target).addClass(this.text + " open show");
+    $(event.target).addClass(event.target + " open show");
 });
 /*
 
