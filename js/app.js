@@ -1,6 +1,6 @@
 const cardsArray = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"];
 
-const unorganizedList = $("ul.deck");
+const unorganizedList = $(".deck");
 
 function shuffle(cardsArray) { 
     var currentIndex = cardsArray.length, temporaryValue, randomIndex; 
@@ -19,14 +19,12 @@ function shuffle(cardsArray) {
 
     shuffle(cardsArray);
     
-const cardsTable = cardsArray.map(function(index, value) {
-    const li = $("li")
-        .addClass("card")
-        .appendTo("ul.deck")
-
-    const i = $("i")
-        .addClass(value)
-        .appendTo("ul.deck.li")
+const cardsTable = cardsArray.map(function callback(currentValue, index, array) {
+    const li = $(".deck").append("<li> </li>")
+        $("li").addClass("card")
+    const i = $(".deck li").append("<i> </i>")
+        $(".deck li i").addClass(currentValue)
+//    }  
 });
 
 //$.each(cardsArray, function(index, value) { // For each iteration of the array
@@ -45,7 +43,7 @@ const cardsTable = cardsArray.map(function(index, value) {
 //    return randomize;
 //}
 
-$(".card").on('click', function(Event) {  //event listener code
+$(".card").on('click', function() {  //event listener code
     $(event.target).addClass(event.target + " open show");
 });
 /*
