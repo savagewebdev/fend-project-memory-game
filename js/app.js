@@ -20,7 +20,7 @@ const cardsTable = shuffle(cardsArray).map(function callback(currentValue, index
     $(".deck").append(cardMe);
 });
 
-$(".card").on('click', function() {  //event listener code
+$(".card").on('click', function() { // When the card is clicked on...
     $(event.target).addClass(event.target + " open show");
 });
 
