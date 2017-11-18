@@ -24,6 +24,10 @@ $(".card").on('click', function() { // When the card is clicked on...
     $(event.target).addClass(event.target + " open show");
 });
 
+$(".restart").on('click', function() {
+    $(".card").removeClass(" open show");
+});
+
 /*
 
 Pseudoclassical Template:
