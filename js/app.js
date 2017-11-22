@@ -13,20 +13,31 @@ function shuffle(cardsArray) {
         cardsArray[randomIndex] = temporaryValue;
     }
     return cardsArray;
-}
-    
-const cardsTable = shuffle(cardsArray).map(function callback(currentValue, index, array) { // Created a new shuffled array.
+};
+
+function cardsTable() {
+    shuffle(cardsArray).map(function callback(currentValue, index, array) { // Created a new shuffled array.
     const cardMe = "<li class='card'><i class=" + '"' + currentValue + '"' + "</i></li>";  // Each index has an li, i, and classes.
     $(".deck").append(cardMe); // And each card is appended to the deck ul HTML.
-});
+    $(".card").on('click', function() { // When the card is clicked on...
+        $(event.target).addClass(event.target + " open show");
+        openCards.push(currentValue);
+        });
+    });
+};
 
-$(".card").on('click', function() { // When the card is clicked on...
-    $(event.target).addClass(event.target + " open show");
-});
+cardsTable();
 
 $(".restart").on('click', function() {
-    $(".card").removeClass(" open show");
+    $(".deck").empty()
+    cardsTable();
 });
+
+const openCards = [
+];
+    
+
+
 
 /*
 
