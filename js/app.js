@@ -15,13 +15,15 @@ function shuffle(cardsArray) {
     return cardsArray;
 };
 
+const openCards = [];
+
 function cardsTable() {
     shuffle(cardsArray).map(function callback(currentValue, index, array) { // Created a new shuffled array.
     const cardMe = "<li class='card'><i class=" + '"' + currentValue + '"' + "</i></li>";  // Each index has an li, i, and classes.
     $(".deck").append(cardMe); // And each card is appended to the deck ul HTML.
     $(".card").on('click', function() { // When the card is clicked on...
         $(event.target).addClass(event.target + " open show");
-        openCards.push(currentValue);
+//        let insertCard = openCards.push(cardMe);
         });
     });
 };
@@ -33,9 +35,22 @@ $(".restart").on('click', function() {
     cardsTable();
 });
 
-const openCards = [
-];
+const card = {
     
+    
+    clickedCard: " open show",
+    matchedCard: " match",
+    
+    click: function () {
+        code
+    },
+    
+    match: function () {
+        code
+    }
+        
+    }  
+
 
 
 
