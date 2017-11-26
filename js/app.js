@@ -15,24 +15,35 @@ function shuffle(cardsArray) {
     return cardsArray;
 };
 
-function cardsTable() { // Makes the cards from the Array and insert them into the deck.
-    shuffle(cardsArray).map(function callback(currentValue, index, array) { 
+shuffle(cardsArray).map(function callback(currentValue) { 
     const cardMe = "<li class='card'><i class=" + '"' + currentValue + '"' + "</i></li>"; 
-    $(".deck").append(cardMe); 
-    });
-};
-
-
-
-$(".restart").on('click', function(event) {
-    event.preventDefault();
-    $(".deck").empty();
+    $(".deck").append(cardMe);
 });
 
-$(".card").on('click', function(event) { // When the card is clicked on...
-        $(event.target).addClass(event.target + " open show");
-    });
-};
+$(".card").on('click', function() { // When the card is clicked on...
+    
+//const cardOpen = {
+//    
+//    
+//}
+
+    
+    
+//const openCard = {
+    
+    //.on triggers function/method
+    //method triggers property edits 
+    
+}
+
+//$(".card").on('click', function() { // When the card is clicked on...
+//    $(event.target).addClass(event.target + " open show");
+//});
+//
+//$(".restart").on('click', function() {
+//    $(".deck").empty();
+//});
+
 
 
 
