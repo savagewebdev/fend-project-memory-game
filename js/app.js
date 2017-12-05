@@ -16,11 +16,29 @@ function shuffle(cardsArray) {
 };
 
 shuffle(cardsArray).map(function callback(currentValue) { 
-    const cardMe = "<li class='card'><i class=" + '"' + currentValue + '"' + "</i></li>"; 
-    $(".deck").append(cardMe);
+    const addCard = "<li class='card'><i class=" + '"' + currentValue + '"' + "</i></li>"; 
+    $(".deck").append(addCard);
 });
 
-$(".card").on('click', function() { // When the card is clicked on...
+const myObect {
+    
+    selections: function (clicks) {
+        myCard: $(".card"),
+        myRestart: $(".restart"),
+        myScore: $(".stars"),
+        myMoves: $(".moves")
+    },
+    
+    cardMe: function () {
+        myObject.selections.myCard
+        .on ('click', function() {
+            event.target.addClass(event.target) + " open show");
+        ;
+    },
+    
+};
+//
+//$(".card").on('click', function() { // When the card is clicked on...
     
 //const cardOpen = {
 //    
@@ -34,7 +52,7 @@ $(".card").on('click', function() { // When the card is clicked on...
     //.on triggers function/method
     //method triggers property edits 
     
-}
+
 
 //$(".card").on('click', function() { // When the card is clicked on...
 //    $(event.target).addClass(event.target + " open show");
@@ -44,45 +62,5 @@ $(".card").on('click', function() { // When the card is clicked on...
 //    $(".deck").empty();
 //});
 
-
-
-
-/*
-
-Pseudoclassical Template:
-
-*** The Masterclass ***
-
-var Car = function(loc){ 
-    this.loc = loc;
-};
-
-++ The car constructor ++
-
-Car.prototype.move = function(){
-    this.loc++;
-};
-
-*** The subclass ***
-
-var Van = function(loc){ 
-    this.loc = Car.move; 
-};
-
-++ The moving van constructor ++
-
-Van.prototype.move = function() { 
-    this.loc++;
-};
-
--- The actual instantizations --
-
-var zed = new Car(3); 
-zed.move();
-
-var amy = new Van(9);
-amy.move();
-
-*/
 
 
