@@ -17,24 +17,24 @@ const myObect = {
         return cardsArray;
     },
     
-    const myDisplay = shuffle.map(function callback(currentValue) { 
+    myDisplay: shuffle(cardsArray).map(function callback(currentValue) { 
         const addCard = "<li class='card'><i class=" + '"' + currentValue + '"' + "</i></li>"; 
         $(".deck").append(addCard);
-    });
+    })
     
-    selections: function (clicks) {
-        myCard: $(".card"),
-        myRestart: $(".restart"),
-        myScore: $(".stars"),
-        myMoves: $(".moves")
-    },
-    
-    cardMe: function () {
-        myObject.selections.myCard
-        .on ('click', function() {
-            event.target.addClass(event.target) + " open show");
-        ;
-    }
+//    selections: function (clicks) {
+//        myCard: $(".card"),
+//        myRestart: $(".restart"),
+//        myScore: $(".stars"),
+//        myMoves: $(".moves")
+//    },
+//    
+//    cardMe: function () {
+//        myObject.selections.myCard
+//        .on ('click', function() {
+//            event.target.addClass(event.target) + " open show");
+//        ;
+//    }
     
 };
 
