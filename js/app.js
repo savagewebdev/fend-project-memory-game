@@ -1,4 +1,4 @@
-const myObect {
+const myObect = {
     
     cardsArray: ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"],
     
@@ -17,7 +17,7 @@ const myObect {
         return cardsArray;
     },
     
-    const myDisplay = myObject.shuffle.map(function callback(currentValue) { 
+    const myDisplay = shuffle.map(function callback(currentValue) { 
         const addCard = "<li class='card'><i class=" + '"' + currentValue + '"' + "</i></li>"; 
         $(".deck").append(addCard);
     });
