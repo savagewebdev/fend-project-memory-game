@@ -1,28 +1,27 @@
-const myObject = {
-    
-    cardsArray: ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"],
-    
-    shuffle: function(cardsArray) { 
-        var currentIndex = cardsArray.length, temporaryValue, randomIndex; 
+const cardsArray = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"];
 
-        while (currentIndex !== 0) { // While there remain elements left to shuffle...
-        
-            randomIndex = Math.floor(Math.random() * currentIndex); // Pick a remaining element
-            currentIndex -= 1;
-            
-            temporaryValue = cardsArray[currentIndex]; // And swap it with the current element
-            cardsArray[currentIndex] = cardsArray[randomIndex];
-            cardsArray[randomIndex] = temporaryValue;
-        }
-        return cardsArray;
-    },
+function shuffle(cardsArray) { 
+    let currentIndex = cardsArray.length, temporaryValue, randomIndex; 
+
+    while (currentIndex !== 0) { // While there remain elements left to shuffle...
     
-    myDisplay: function () {
-        myObject.shuffle.map(function callback(currentValue) { 
-        const addCard = "<li class='card'><i class=" + '"' + currentValue + '"' + "</i></li>"; 
-        $(".deck").append(addCard);
-        })
+        randomIndex = Math.floor(Math.random() * currentIndex); // Pick a remaining element
+        currentIndex -= 1;
+        
+        temporaryValue = cardsArray[currentIndex]; // And swap it with the current element
+        cardsArray[currentIndex] = cardsArray[randomIndex];
+        cardsArray[randomIndex] = temporaryValue;
     }
+    return cardsArray;
+}
+    
+const shuffleMe = shuffle(cardsArray).map(function callback(currentValue) { 
+    const addCard = "<li class='card'><i class=" + '"' + currentValue + '"' + "</i></li>"; 
+    $(".deck").append(addCard);
+    });
+
+shuffleMe;
+
 //    
 //    selections: function (clicks) {
 //        myCard: $(".card"),
@@ -37,10 +36,9 @@ const myObject = {
 //            event.target.addClass(event.target) + " open show");
 //        ;
 //    }
-    
-};
 
-myObject.myDisplay();
+
+
 //
 //$(".card").on('click', function() { // When the card is clicked on...
     
