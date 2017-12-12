@@ -22,6 +22,18 @@ const shuffleMe = shuffle(cardsArray).map(function callback(currentValue) {
 
 shuffleMe;
 
+const obj = {
+    
+    const Card = $
+    
+    Card.prototype.opened = function() {
+        
+    }
+    
+    const openedCards = [];
+    
+    
+};
 //    
 //    selections: function (clicks) {
 //        myCard: $(".card"),
