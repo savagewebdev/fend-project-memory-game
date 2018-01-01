@@ -22,20 +22,12 @@ const ShuffleMe = shuffle(cardsArray).map(function callback(currentValue) {
 
 ShuffleMe;
     
-//const Cardobject = jQuery.event("click");
-//});
+$(".card").on('click', function(event)) {
+    $(event.target).addClass(event.target + " open show");
+});
 
-//Cardobject.prototype.flip = function() {
-//    $(event.target).addClass(event.target + " open show");
-//};
-
-
-
-
-
-const reStart = $(".restart").on('click', function() {
+$(".restart").on('click', function() {
     $(".deck").empty();
-    return ShuffleMe;
 });
 
 
