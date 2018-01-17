@@ -22,7 +22,7 @@ const ShuffleMe = shuffle(cardsArray).map(function callback(currentValue) {
 
 ShuffleMe;
     
-$(".card").on('click', function(event)) {
+$(".card").on('click', function(event) {
     $(event.target).addClass(event.target + " open show");
 });
 
