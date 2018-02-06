@@ -1,3 +1,3 @@
-const Jumper = new Shuffle();
+const Jumper = new Cards();
 Jumper.flip();
 
