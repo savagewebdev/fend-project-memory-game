@@ -1,7 +1,7 @@
 const Cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"];
 
 
-Cards.prototype.shuffle = function (Cards) { 
+Array.prototype.shuffle = function (Cards) { 
     let currentIndex = Cards.length, temporaryValue, randomIndex; 
 
     while (currentIndex !== 0) { // While there remain elements left to shuffle...
