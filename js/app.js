@@ -1,25 +1,28 @@
-const Cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"];
-
-
-Array.prototype.shuffle = function (Cards) { 
-    let currentIndex = Cards.length, temporaryValue, randomIndex; 
+function shuffle(array) { // Randomization of any given prototype array
+    let currentIndex =  array.length, temporaryValue, randomIndex; 
 
     while (currentIndex !== 0) { // While there remain elements left to shuffle...
     
         randomIndex = Math.floor(Math.random() * currentIndex); // Pick a remaining element
         currentIndex -= 1;
         
-        temporaryValue = Cards[currentIndex]; // And swap it with the current element
-        Cards[currentIndex] = Cards[randomIndex];
-        Cards[randomIndex] = temporaryValue;
+        temporaryValue = array[currentIndex]; // And swap it with the current element
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
     }
-    return cardsArray;
+    return array;
 }
-    
-Cards.prototype.flip = Shuffle(Cards).map = function callback(currentValue) { 
+
+const cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"]; // Array
+
+const newcards = shuffle(cards).map(function callback (currentValue) { // Create a new shuffled array (map).
     const addCard = "<li class='card'><i class=" + '"' + currentValue + '"' + "</i></li>"; 
-    $(".deck").append(addCard);
-    };
+        $(".deck").append(addCard);
+});  
+
+//const Cardme = function (loc) { // Creation of the new Object
+//    this.loc = loc;
+//};
     
 $(".card").on('click', function(event) {
     $(event.target).addClass(event.target + " open show");
