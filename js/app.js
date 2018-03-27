@@ -1,5 +1,5 @@
-function shuffle(array) { // Randomization of any given prototype array
-    let currentIndex =  array.length, temporaryValue, randomIndex; 
+function shuffle(array) { // Randomization of array
+    let currentIndex = array.length, temporaryValue, randomIndex; 
 
     while (currentIndex !== 0) { // While there remain elements left to shuffle...
     
@@ -15,7 +15,7 @@ function shuffle(array) { // Randomization of any given prototype array
 
 const cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"]; // Array
 
-const newcards = shuffle(cards).map(function callback (currentValue) { // Create a new shuffled array (map).
+const Newcards = shuffle(cards).map(function callback (currentValue) { // Create a new shuffled array (map).
     const addCard = "<li class='card'><i class=" + '"' + currentValue + '"' + "</i></li>"; 
         $(".deck").append(addCard);
 });  
@@ -24,13 +24,22 @@ const newcards = shuffle(cards).map(function callback (currentValue) { // Create
 //    this.loc = loc;
 //};
     
-$(".card").on('click', function(event) {
-    $(event.target).addClass(event.target + " open show");
-});
+const Doover = function() {
+    $(".restart").on('click', function(event) {
+        
+    });
+}
 
-//$(".restart").on('click', function() {
-//    $(".deck").empty();
-//});
+const Card = function() {
+    $(".card").on('click', function(event) {
+        $(event.target).addClass(event.target + " open show");
+    });
+}
+
+
+
+
+
 
 
 
