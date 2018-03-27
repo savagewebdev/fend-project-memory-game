@@ -1,3 +1,5 @@
-Doover();
-Card();
+Memorygame();
+const Testor = new Dover();
+Testor.flip();
+
 
