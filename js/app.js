@@ -36,7 +36,8 @@ Memorygame.prototype.flip = function() {
 const Dover = function() {
     $(".restart").on('click', function() {
         $(".deck").empty();
-        Memorygame.call(this);
+        const x = new Memorygame();
+        x.flip()
     });
 }
 
