@@ -28,9 +28,30 @@ const Memorygame = function() { // Object
 }
 
 Memorygame.prototype.flip = function() {
-    $(".card").on('click', function(event) {
-        $(event.target).addClass(event.target + " open show");
-    });
+        
+    for (var i = 0; i < 1; i++) {
+        
+            $(".card").on('click', function(event) {
+                $(event.target).addClass(event.target + " open show");
+                let x = event.target;
+            })
+            
+        for (var b = 0; b < i; b++) {
+            
+            $(".card").on('click', function(event) {
+                $(event.target).addClass(event.target + " open show");
+                let y = event.target;
+            })
+            
+            if (x === y) {
+                console.log("They Match");
+            }
+            else {
+                console.log("They don't match");
+            } 
+        }
+        }
+
 }
 
 const Dover = function() {
