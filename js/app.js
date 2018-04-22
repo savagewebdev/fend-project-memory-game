@@ -27,32 +27,16 @@ const Memorygame = function() { // Object
     
 }
 
-Memorygame.prototype.flip = function() {
-        
-    for (var i = 0; i < 1; i++) {
-        
-            $(".card").on('click', function(event) {
-                $(event.target).addClass(event.target + " open show");
-                let x = event.target;
-            })
-            
-        for (var b = 0; b < i; b++) {
-            
-            $(".card").on('click', function(event) {
-                $(event.target).addClass(event.target + " open show");
-                let y = event.target;
-            })
-            
-            if (x === y) {
-                console.log("They Match");
-            }
-            else {
-                console.log("They don't match");
-            } 
-        }
-        }
+let Turn = 0; // The Turn counter.
 
+Memorygame.prototype.flip = function() {
+    
+    $(".card").on('click', function(event) {
+        $(event.target).addClass(event.target + " open show");  
+        Turn++; // Increase the Turn counter.
+        })
 }
+
 
 const Dover = function() {
     $(".restart").on('click', function() {
@@ -64,8 +48,6 @@ const Dover = function() {
 
 Dover.prototype = Object.create(Memorygame.prototype);
 Dover.prototype.constructor = Memorygame;
-
-
 
 
 
