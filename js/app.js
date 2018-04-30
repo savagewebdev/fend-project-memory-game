@@ -27,14 +27,22 @@ const Memorygame = function() { // Object
     
 }
 
-let Turn = 0; // The Turn counter.
+let Turn = []; // An empty array.
 
 Memorygame.prototype.flip = function() {
     
     $(".card").on('click', function(event) {
-        $(event.target).addClass(event.target + " open show");  
-        Turn++; // Increase the Turn counter.
-        })
+        $(event.target).push(Turn); // Push the card into a new array
+        $(event.target).addClass(event.target + " open show"); // Show the card
+        
+        if (Turn.length <= 1) { // If two cards have been pushed,
+             // Check to see if the two indeces match. If not, the Turn array will be emptied.
+            
+            else {
+                code
+            }
+        }
+    })
 }
 
 
@@ -48,8 +56,6 @@ const Dover = function() {
 
 Dover.prototype = Object.create(Memorygame.prototype);
 Dover.prototype.constructor = Memorygame;
-
-
 
 
 
