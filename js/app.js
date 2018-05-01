@@ -32,18 +32,18 @@ let Turn = []; // An empty array.
 Memorygame.prototype.flip = function() {
     
     $(".card").on('click', function(event) {
-        $(event.target).push(Turn); // Push the card into a new array
-        $(event.target).addClass(event.target + " open show"); // Show the card
+        let Flipped = $(event.target:nth-child(1)).addClass(event.target + " open show"); // Show the card
+        Turn.push(Flipped.toString()); // Push the card into a new array
+
         
-        if (Turn.length <= 1) { // If two cards have been pushed,
-             // Check to see if the two indeces match. If not, the Turn array will be emptied.
-            
-            else {
-                code
-            }
+//        if (Turn.length <= 1) { // If two cards have been pushed,
+//             // Check to see if the two indeces match. If not, the Turn array will be emptied.
+//            
+//            else {
+//                code
+//            }
         }
-    })
-}
+)};
 
 
 const Dover = function() {
