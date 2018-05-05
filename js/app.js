@@ -32,8 +32,8 @@ let Turn = []; // An empty array.
 Memorygame.prototype.flip = function() {
     
     $(".card").on('click', function(event) {
-        let Flipped = $(event.target:nth-child(1)).addClass(event.target + " open show"); // Show the card
-        Turn.push(Flipped.toString()); // Push the card into a new array
+        let Flipped = $(event.target).addClass(" open show"); // Show the card
+        Turn.push($(event.target).children(':nth-child(1)')); // Push the card into a new array
 
         
 //        if (Turn.length <= 1) { // If two cards have been pushed,
