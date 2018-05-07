@@ -30,21 +30,33 @@ const Memorygame = function() { // Object
 let Turn = []; // An empty array.
 
 Memorygame.prototype.flip = function() {
-    
     $(".card").on('click', function(event) {
-        let Flipped = $(event.target).addClass(" open show"); // Show the card
-        Turn.push($(event.target).children(':nth-child(1)')); // Push the card into a new array
-
+        Turn.push($(event.target).children(':nth-child(1)').addClass(" open show")); // Push the card into a new array
+        // Memory counter should probably be increased at some point.
+        if (Turn.length === 1) { // If two turns have been tried....
         
-//        if (Turn.length <= 1) { // If two cards have been pushed,
-//             // Check to see if the two indeces match. If not, the Turn array will be emptied.
-//            
-//            else {
-//                code
+            if (Turn[0] === Turn[1]) { // and the cards match...
+        
+                for (var i = Turn.length; i > 0; i--) { // Empty the array and continue.
+                Turn.pop(); 
+                }
+            }
+            
+            else { // And if the cards do not match...
+            
+                for (var i = Turn.length; i > 0; i--) { 
+                i.removeClass(" open show"); // Close the cards.
+                Turn.pop(); // and empty the array.
+                };
+            }
+                
+//        else {
+//            undefined; // If two cards haven't been tried, then don't do anything.
 //            }
         }
+    }
+    
 )};
-
 
 const Dover = function() {
     $(".restart").on('click', function() {
