@@ -1,5 +1,5 @@
 const primer = new Memorygame();
-const Testor = new Dover();
+const Testor = new Doover();
 primer.flip();
 
 

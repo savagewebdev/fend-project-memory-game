@@ -31,22 +31,25 @@ let Turn = []; // An empty array.
 
 Memorygame.prototype.flip = function() {
     $(".card").on('click', function(event) {
-        Turn.push($(event.target).children(':nth-child(1)').addClass(" open show")); // Push the card into a new array
-        // Memory counter should probably be increased at some point.
-        if (Turn.length === 1) { // If two turns have been tried....
+        $(event.target).addClass(" open show"); 
+        let Compare = $(event.target).children(':nth-child(1)');
+        Turn.push(Compare);
+        // Memory counter should probably be increased at some point.  
+        if (Turn.length == 1) { // If two turns have been tried....
         
             if (Turn[0] === Turn[1]) { // and the cards match...
         
-                for (var i = Turn.length; i > 0; i--) { // Empty the array and continue.
+                for (let i = Turn.length; i > 0; i--) { // Empty the array and continue.
                 Turn.pop(); 
                 }
             }
             
             else { // And if the cards do not match...
             
-                for (var i = Turn.length; i > 0; i--) { 
-                i.removeClass(" open show"); // Close the cards.
-                Turn.pop(); // and empty the array.
+                for (let i = Turn.length; i > 0; i--) { // Empty the array and continue.
+                let Erase = $(this).removeClass(" open show"); // Close the cards.
+//                $("i").each(Erase);
+//                Turn.pop(); // and empty the array.
                 };
             }
                 
@@ -56,9 +59,11 @@ Memorygame.prototype.flip = function() {
         }
     }
     
-)};
+);
+}
 
-const Dover = function() {
+
+const Doover = function() {
     $(".restart").on('click', function() {
         $(".deck").empty();
         const x = new Memorygame();
@@ -66,8 +71,8 @@ const Dover = function() {
     });
 }
 
-Dover.prototype = Object.create(Memorygame.prototype);
-Dover.prototype.constructor = Memorygame;
+Doover.prototype = Object.create(Memorygame.prototype);
+Doover.prototype.constructor = Memorygame;
 
 
 
