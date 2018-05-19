@@ -33,6 +33,7 @@ Memorygame.prototype.flip = function() {
     $(".card").on('click', function(event) {
         $(event.target).addClass(" open show"); 
         let Compare = $(event.target).children(':nth-child(1)');
+//        console.log(event.target);
         Turn.push(Compare);
         // Memory counter should probably be increased at some point.  
         if (Turn.length === 1) { // If two turns have been tried....
