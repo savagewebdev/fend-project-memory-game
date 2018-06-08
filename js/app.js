@@ -35,7 +35,7 @@ Memorygame.prototype.flip = function() {
     });
 }
 
-function clickedCard(card) { // Customization begins now
+function clickedCard(card) { // Customization begins shortly. Invert prototypes/variable seems to be the best option.
     card.classList.add('open', 'show');
 	const i = card.firstChild;
 	let topCard; 
