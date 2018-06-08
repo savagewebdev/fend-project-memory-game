@@ -27,42 +27,38 @@ const Memorygame = function() { // Object
     
 }
 
-let Turn = []; // An empty array.
+let openedCards = []; // An empty array.
 
 Memorygame.prototype.flip = function() {
     $(".card").on('click', function(event) {
-        $(event.target).addClass(" open show"); 
-        let Compare = $(event.target).children(':nth-child(1)');
-//        console.log(event.target);
-        Turn.push(Compare);
-        // Memory counter should probably be increased at some point.  
-        if (Turn.length >= 1) { // If two turns have been tried....
-        
-            if (Turn[0] === Turn[1]) { // and the cards match...
-        
-                for (let i = Turn.length; i > 0; i--) { // Empty the array and continue.
-                Turn.pop(); 
-                }
-            }
-            
-            else { // And if the cards do not match...
-            
-                for (let i = Turn.length; i > 0; i--) { // Empty the array and continue.
-                let Erase = $(this).removeClass(" open show"); // Close the cards.
-//                $("i").each(Erase);
-//                Turn.pop(); // and empty the array.
-                };
-            }
-                
-//        else {
-//            undefined; // If two cards haven't been tried, then don't do anything.
-//            }
-        }
-    }
-    
-);
+        clickedCard(event.target); 
+    });
 }
 
+function clickedCard(card) { // Customization begins now
+    card.classList.add('open', 'show');
+	const i = card.firstChild;
+	let topCard; 
+
+    if (openCards.length == 0) { 
+		openCards.push(card);
+		console.log(openCards);
+
+    } else { 
+		topCard = openCards.pop();
+		if (topCard.firstChild.className === i.className) { 
+            console.log('matched!');
+        } else { 
+			console.log('not match!'); 
+			setTimeout(() => { 
+				topCard.classList.remove('open', 'show'); 
+				card.classList.remove('open', 'show');
+				topCard.classList.add('close');
+				card.classList.add('close'); 
+			}, 1 * 1000); 
+        }
+    }
+}
 
 const Doover = function() {
     $(".restart").on('click', function() {
