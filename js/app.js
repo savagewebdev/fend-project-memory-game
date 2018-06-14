@@ -29,13 +29,13 @@ const Memorygame = function() { // Object
 
 let openedCards = []; // An empty array.
 
-Memorygame.prototype.flip = function() {
+const Card = function() {
     $(".card").on('click', function(event) {
         clickedCard(event.target); 
     });
 }
 
-function clickedCard(card) { // Customization begins shortly. Invert prototypes/variable seems to be the best option.
+function clickedCard(card) { 
     card.classList.add('open', 'show');
 	const i = card.firstChild;
 	let topCard; 
@@ -64,7 +64,7 @@ const Doover = function() {
     $(".restart").on('click', function() {
         $(".deck").empty();
         const x = new Memorygame();
-        x.flip()
+        x.clickedCard();
     });
 }
 

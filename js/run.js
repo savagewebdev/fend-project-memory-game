@@ -1,5 +1,6 @@
-const primer = new Memorygame();
+const Primer = new Memorygame();
 const Testor = new Doover();
-primer.flip();
+const Flipper = new Card();
+
 
 
