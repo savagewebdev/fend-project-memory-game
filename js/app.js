@@ -15,16 +15,18 @@ function shuffle(array) { // Randomization of array
 
 const cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"]; // Array
 
-const Newcards = shuffle(cards).map(function callback (currentValue) { // Create a new shuffled array (map).
+function Newcards() {
+    shuffle(cards).map(function callback (currentValue) { // Create a new shuffled array (map).
     const addCard = "<li class='card'><i class=" + '"' + currentValue + '"' + "</i></li>"; 
         $(".deck").append(addCard);    
 });  
+}
 
 const Doover = function() {
 $(".restart").on('click', function() {
     $(".deck").empty();
-    const x = new Memorygame();
-    x.clickedCard();
+    let x = new Newcards();
+    let y = new Card();
 });
 }
 

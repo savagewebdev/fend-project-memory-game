@@ -1,3 +1,4 @@
+Newcards();
 Doover();
 Card();
 
