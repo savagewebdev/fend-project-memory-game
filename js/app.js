@@ -13,7 +13,7 @@ function shuffle(array) { // Randomization of array
     return array;
 }
 
-const cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"]; // Array
+const cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"]; 
 
 function Newcards() {
     shuffle(cards).map(function callback (currentValue) { // Create a new shuffled array (map).
@@ -27,14 +27,16 @@ $(".restart").on('click', function() {
     $(".deck").empty();
     let x = new Newcards();
     let y = new Card();
+    countDown();
 });
 }
 
-let openCards = []; // An empty array.
+let openCards = []; 
 
 const Card = function() {
     $(".card").on('click', function(event) {
         clickedCard(event.target); // Do the clickedCard event function upon the Card that is clicked on.
+//        alert("Testing window 1,2,3");
     });
 }
 
@@ -46,15 +48,12 @@ function clickedCard(card) {
 
     if (openCards.length == 0) {
         openCards.push(card);
-        console.log(openCards);
     } 
     else {
         topCard = openCards.pop();
         if (topCard.firstChild.className === i.className) {
-            console.log('matched!');
             // check if wins here
         } else {
-            console.log('not match!');
             setTimeout(() => {
                 topCard.classList.remove('open', 'show');
                 card.classList.remove('open', 'show');
@@ -65,7 +64,12 @@ function clickedCard(card) {
     }
 }
 
-
+//const Timer = setInterval(countDown, 1000);
+//
+//function countDown() {
+//    let x = Date.now();
+//    console.log(Math.floor(x/1000));
+//}
 
 
 
