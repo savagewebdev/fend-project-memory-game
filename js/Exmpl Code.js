@@ -20,7 +20,7 @@
 //	
 //	if (openCards.length == 0) { // A conditional statement. If the array is empty...
 //		openCards.push(card); // then push the clicked, flipped card into the array.
-//		console.log(openCards); // And display the array in the console. *** Odd one. Seems like boasting. ***
+//		console.log(openCards); 
 //
 //	} else { // Otherwise, if the array isn't already empty, then do some evaluating:
 //	

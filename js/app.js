@@ -27,7 +27,7 @@ $(".restart").on('click', function() {
     $(".deck").empty();
     let x = new Newcards();
     let y = new Card();
-    countDown();
+    let z = new countDown();
 });
 }
 
@@ -46,9 +46,14 @@ function clickedCard(card) {
     const i = card.firstChild;
     let topCard;
 
+// First Turn
+
     if (openCards.length == 0) {
         openCards.push(card);
     } 
+    
+// End of First Turn
+    
     else {
         topCard = openCards.pop();
         if (topCard.firstChild.className === i.className) {
@@ -72,6 +77,11 @@ function countDown() {
     i++;
     console.log(i);
 }
+
+// Stars
+
+
+// Moves
 
 
 
