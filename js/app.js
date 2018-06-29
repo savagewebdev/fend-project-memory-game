@@ -64,14 +64,14 @@ function clickedCard(card) {
     }
 }
 
-//const Timer = setInterval(countDown, 1000);
-//
-//function countDown() {
-//    let x = Date.now();
-//    console.log(Math.floor(x/1000));
-//}
+let i = 0;
 
+const Timer = setInterval(countDown, 1000);
 
+function countDown() {
+    i++;
+    console.log(i);
+}
 
 
 
