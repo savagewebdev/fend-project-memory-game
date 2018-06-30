@@ -50,6 +50,8 @@ function clickedCard(card) {
 
     if (openCards.length == 0) {
         openCards.push(card);
+        // Place move counter here
+//        $(".moves").contents()
     } 
     
 // End of First Turn
