@@ -32,15 +32,24 @@ $(".restart").on('click', function() {
 }
 
 let openCards = []; 
+let moveCounter = 0;
+
+function Moves() {
+    moveCounter++;
+    if (moveCounter === 1) {
+        $("span.moves").html("" + moveCounter + " Move");
+    } else {
+        $("span.moves").html("" + moveCounter + " Moves");
+    }
+}
 
 const Card = function() {
     $(".card").on('click', function(event) {
-        clickedCard(event.target); // Do the clickedCard event function upon the Card that is clicked on.
-//        alert("Testing window 1,2,3");
+        clickedCard(event.target);
     });
 }
 
-function clickedCard(card) {
+function clickedCard(card) { // (card) = event.target
     card.classList.add('open', 'show');
 
     const i = card.firstChild;
@@ -48,11 +57,10 @@ function clickedCard(card) {
 
 // First Turn
 
-    if (openCards.length == 0) {
+    if (openCards.length == 0) { // If the openCards array is empty, then fill it with the active card that has been pushed.
         openCards.push(card);
-        // Place move counter here
-//        $(".moves").contents()
-    } 
+        Moves();  
+    }
     
 // End of First Turn
     
@@ -60,6 +68,7 @@ function clickedCard(card) {
         topCard = openCards.pop();
         if (topCard.firstChild.className === i.className) {
             // check if wins here
+            
         } else {
             setTimeout(() => {
                 topCard.classList.remove('open', 'show');
@@ -67,7 +76,7 @@ function clickedCard(card) {
                 topCard.classList.add('close');
                 card.classList.add('close');
             }, 1 * 1000);
-        }
+        }  
     }
 }
 
