@@ -22,6 +22,9 @@ function Newcards() {
 });  
 }
 
+let openCards = []; 
+let moveCounter = 0;
+
 const Doover = function() {
 $(".restart").on('click', function() {
     $(".deck").empty();
@@ -30,9 +33,6 @@ $(".restart").on('click', function() {
     let z = new countDown();
 });
 }
-
-let openCards = []; 
-let moveCounter = 0;
 
 function Moves() {
     moveCounter++;
