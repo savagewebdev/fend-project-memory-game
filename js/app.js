@@ -25,8 +25,8 @@ function Newcards() {
 const openCards = []; 
 let moveCounter = 0;
 let Matches = 0;
-let i = 0;
-let totalStars = $('.stars ul li').length;
+let Seconds = 0;
+let totalStars = $(".stars li").length;
 
 const Timer = setInterval(countDown, 1000);
 
@@ -40,8 +40,8 @@ $(".restart").on('click', function() {
 }
 
 function countDown() {
-    i++;
-    console.log(i);
+    Seconds++;
+    console.log(Seconds);
 }
 
 function Moves() {
@@ -88,7 +88,6 @@ function clickedCard(card) { // (card) = event.target
     else { // If the first turn has been completed, then
         topCard = openCards.pop(); // the top card is taken and compared...
         if (topCard.firstChild.className === i.className) { // to the card that was recently clicked.
-        Matches++;// it automatically remains open...
         } else { // otherwise it closes within a certain timeframe.
             setTimeout(() => {
                 topCard.classList.remove('open', 'show');
@@ -96,13 +95,14 @@ function clickedCard(card) { // (card) = event.target
                 topCard.classList.add('close');
                 card.classList.add('close');
             }, 1 * 750);
-        }  
+        }
+        Matches++;// it automatically remains open...  
     }
     
     if (Matches == 8) { // All the cards have been pushed to the open array...
         clearInterval(Timer); // clear the timer
         let txt;
-        let Message = confirm("You've won! It only took you " + moveCounter + " turns and " + i + " seconds and you earned a star rating of " + totalStars + ". Play again?");
+        let Message = confirm("You've won! It only took you " + moveCounter + " turns and " + Seconds + " seconds and you earned a star rating of " + totalStars + ". Play again?");
         if (Message == true) {
             txt = "You pressed OK!";
         } else {
