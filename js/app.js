@@ -76,7 +76,7 @@ function clickedCard(card) { // (card) = event.target
     else if (openCards.length == 16) { // All the cards have been pushed to the open array...
         clearInterval(Timer); // clear the timer
         let txt;
-        let Message = confirm("You've won! It only took you" + moveCounter + " turns and" + i + " seconds and you earned a star rating of " + $('.stars ul li').length) + " Play again?");
+        let Message = confirm("You've won! It only took you" + moveCounter + " turns and" + i + " seconds and you earned a star rating of " + $('.stars ul li').length + " Play again?");
         if (Message == true) {
             txt = "You pressed OK!";
         } else {
