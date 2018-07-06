@@ -43,6 +43,15 @@ function Moves() {
     }
 }
 
+function Stars() {
+    if (moveCounter == 11) {
+        $(".stars li:nth-child(1)").remove();
+    } else {
+    } if (moveCounter == 16) {
+        $(".stars li:nth-child(2)").remove();
+    }
+}
+
 const Card = function() {
     $(".card").on('click', function(event) {
         clickedCard(event.target);
@@ -60,6 +69,7 @@ function clickedCard(card) { // (card) = event.target
     if (openCards.length == 0) { // If the openCards array is empty, then fill it with the active card that has been pushed.
         openCards.push(card);
         Moves();  
+        Stars();
     }
     
 // End of First Turn
@@ -75,7 +85,7 @@ function clickedCard(card) { // (card) = event.target
                 card.classList.remove('open', 'show');
                 topCard.classList.add('close');
                 card.classList.add('close');
-            }, 1 * 1000);
+            }, 1 * 750);
         }  
     }
 }
@@ -89,10 +99,6 @@ function countDown() {
     console.log(i);
 }
 
-// Stars
-
-
-// Moves
 
 
 
