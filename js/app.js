@@ -76,8 +76,13 @@ function clickedCard(card) { // (card) = event.target
     
     else {
         topCard = openCards.pop();
-        if (topCard.firstChild.className === i.className) {
-            // check if wins here
+        if (topCard.firstChild.className === i.className && openCards.length == 14) {
+            
+            if (confirm("You've won! It only took you " //turns, //seconds, and you earned a star rating of. Play again? + ) {
+                txt = "You pressed OK!";
+            } else {
+                txt = "You pressed Cancel!";
+            }
             
         } else {
             setTimeout(() => {
