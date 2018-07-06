@@ -24,6 +24,7 @@ function Newcards() {
 
 let openCards = []; 
 let moveCounter = 0;
+let Matches = 0;
 
 const Doover = function() {
 $(".restart").on('click', function() {
@@ -73,7 +74,7 @@ function clickedCard(card) { // (card) = event.target
         Stars();
     }
     
-    else if (openCards.length == 16) { // All the cards have been pushed to the open array...
+    else if (Matches == 16) { // All the cards have been pushed to the open array...
         clearInterval(Timer); // clear the timer
         let txt;
         let Message = confirm("You've won! It only took you" + moveCounter + " turns and" + i + " seconds and you earned a star rating of " + $('.stars ul li').length + " Play again?");
@@ -89,7 +90,7 @@ function clickedCard(card) { // (card) = event.target
     else { // If the first turn has been completed, then
         topCard = openCards.pop(); // the top card is taken and compared...
         if (topCard.firstChild.className === i.className) { // to the card that was recently clicked.
-        // it automatically remains open...
+        Matches++;// it automatically remains open...
         } else { // otherwise it closes within a certain timeframe.
             setTimeout(() => {
                 topCard.classList.remove('open', 'show');
