@@ -75,17 +75,11 @@ function clickedCard(card) { // (card) = event.target
     
 // End of First Turn
     
-    else {
-        topCard = openCards.pop();
-        if (topCard.firstChild.className === i.className) {
-//            clearInterval(Timer);
-//            if (confirm("You've won! It only took you" + moveCounter + " turns and" + i " seconds and you earned a star rating of " + $('.stars ul li').length) + " Play again?" ) {
-//                txt = "You pressed OK!";
-//            } else {
-//                txt = "You pressed Cancel!";
-//            }
-//            
-        } else {
+    else { // If the first turn has been completed, then
+        topCard = openCards.pop(); // the top card is taken and compared...
+        if (topCard.firstChild.className === i.className) { // to the card that was recently clicked.
+        // it automatically remains open...
+        } else { // otherwise it closes within a certain timeframe.
             setTimeout(() => {
                 topCard.classList.remove('open', 'show');
                 card.classList.remove('open', 'show');
@@ -93,6 +87,14 @@ function clickedCard(card) { // (card) = event.target
                 card.classList.add('close');
             }, 1 * 750);
         }  
+    }
+    else if (openCards.length == 16) { // All the cards have been pushed to the open array...
+        clearInterval(Timer); // clear the timer
+        if (confirm("You've won! It only took you" + moveCounter + " turns and" + i " seconds and you earned a star rating of " + $('.stars ul li').length) + " Play again?" ) {
+            txt = "You pressed OK!";
+        } else {
+            txt = "You pressed Cancel!";
+        }
     }
 }
 
