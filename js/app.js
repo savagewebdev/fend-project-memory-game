@@ -26,6 +26,8 @@ const openCards = [];
 let moveCounter = 0;
 let Matches = 0;
 let i = 0;
+let totalStars = $('.stars ul li').length;
+
 const Timer = setInterval(countDown, 1000);
 
 const Doover = function() {
@@ -100,7 +102,7 @@ function clickedCard(card) { // (card) = event.target
     if (Matches == 8) { // All the cards have been pushed to the open array...
         clearInterval(Timer); // clear the timer
         let txt;
-        let Message = confirm("You've won! It only took you" + moveCounter + " turns and" + i + " seconds and you earned a star rating of " + $('.stars ul li').length + " Play again?");
+        let Message = confirm("You've won! It only took you " + moveCounter + " turns and " + i + " seconds and you earned a star rating of " + totalStars + ". Play again?");
         if (Message == true) {
             txt = "You pressed OK!";
         } else {
