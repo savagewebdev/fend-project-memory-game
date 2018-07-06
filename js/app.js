@@ -38,6 +38,7 @@ function Moves() {
     moveCounter++;
     if (moveCounter === 1) {
         $("span.moves").html("" + moveCounter + " Move");
+        countDown();
     } else {
         $("span.moves").html("" + moveCounter + " Moves");
     }
@@ -76,14 +77,14 @@ function clickedCard(card) { // (card) = event.target
     
     else {
         topCard = openCards.pop();
-        if (topCard.firstChild.className === i.className && openCards.length == 14) {
-            
-            if (confirm("You've won! It only took you " //turns, //seconds, and you earned a star rating of. Play again? + ) {
-                txt = "You pressed OK!";
-            } else {
-                txt = "You pressed Cancel!";
-            }
-            
+        if (topCard.firstChild.className === i.className) {
+//            clearInterval(Timer);
+//            if (confirm("You've won! It only took you" + moveCounter + " turns and" + i " seconds and you earned a star rating of " + $('.stars ul li').length) + " Play again?" ) {
+//                txt = "You pressed OK!";
+//            } else {
+//                txt = "You pressed Cancel!";
+//            }
+//            
         } else {
             setTimeout(() => {
                 topCard.classList.remove('open', 'show');
