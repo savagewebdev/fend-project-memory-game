@@ -74,7 +74,7 @@ function clickedCard(card) { // (card) = event.target
         Stars();
     }
     
-    else if (Matches == 16) { // All the cards have been pushed to the open array...
+    else if (Matches == 8) { // All the cards have been pushed to the open array...
         clearInterval(Timer); // clear the timer
         let txt;
         let Message = confirm("You've won! It only took you" + moveCounter + " turns and" + i + " seconds and you earned a star rating of " + $('.stars ul li').length + " Play again?");
