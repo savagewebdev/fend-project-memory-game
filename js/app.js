@@ -73,6 +73,17 @@ function clickedCard(card) { // (card) = event.target
         Stars();
     }
     
+    else if (openCards.length == 16) { // All the cards have been pushed to the open array...
+        clearInterval(Timer); // clear the timer
+        let txt;
+        let Message = confirm("You've won! It only took you" + moveCounter + " turns and" + i + " seconds and you earned a star rating of " + $('.stars ul li').length) + " Play again?");
+        if (Message == true) {
+            txt = "You pressed OK!";
+        } else {
+            txt = "You pressed Cancel!";
+        }
+    }
+    
 // End of First Turn
     
     else { // If the first turn has been completed, then
@@ -88,15 +99,7 @@ function clickedCard(card) { // (card) = event.target
             }, 1 * 750);
         }  
     }
-    if (openCards.length == 16) { // All the cards have been pushed to the open array...
-        clearInterval(Timer); // clear the timer
-        let Message = (confirm("You've won! It only took you" + moveCounter + " turns and" + i + " seconds and you earned a star rating of " + $('.stars ul li').length) + " Play again?");
-        if (Message == true) {
-            txt = "You pressed OK!";
-        } else {
-            txt = "You pressed Cancel!";
-        }
-    }
+
 }
 
 let i = 0;
