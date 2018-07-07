@@ -1,4 +1,4 @@
 Newcards();
-Doover();
+Restart();
 Card();
-
+Stars();
