@@ -19,25 +19,28 @@ function Newcards() {
     shuffle(cards).map(function callback (currentValue) { // Create a new shuffled array (map).
     const addCard = "<li class='card'><i class=" + '"' + currentValue + '"' + "</i></li>"; 
         $(".deck").append(addCard);    
-});  
+    });  
 }
 
+
 const openCards = []; 
-let moveCounter = 0;
 let Matches = 0;
 let Seconds = 0;
+let moveCounter = 0;
 
-const Timer = setInterval(countDown, 1000);
 
 const Doover = function() {
 $(".restart").on('click', function() {
     $(".deck").empty();
-    let x = new Newcards();
-    let y = new Card();
-    let z = new countDown();
+    let x = new Newcards(); // Keep
+    let y = new Card(); // Card
+    let z = new countDown(); // Keep
+    let xy = new Moves();
+    let yz = new Stars();
 });
 }
 
+const Timer = setInterval(countDown, 1000);
 function countDown() {
     Seconds++;
     console.log(Seconds);
@@ -86,8 +89,11 @@ function clickedCard(card) { // (card) = event.target
     
     else { // If the first turn has been completed, then
         topCard = openCards.pop(); // the top card is taken and compared...
+        
         if (topCard.firstChild.className === i.className) { // to the card that was recently clicked.
         Matches++;// it automatically remains open...  
+
+        
         } else { // otherwise it closes within a certain timeframe.
             setTimeout(() => {
                 topCard.classList.remove('open', 'show');
