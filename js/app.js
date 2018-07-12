@@ -22,9 +22,16 @@ const cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bo
 const openCards = []; // Empty array for the cards clicked upon.
 let Matches = 0; // The  starting amount of successful card matches.
 let Seconds = 0; // The timer starts at 0.
-let moveCounter; // The starting amount of moves taken.
-let startingStars = 3; // The starting amount of stars.
 
+
+let moveCounter = 0; // The starting amount of moves taken.
+    $(".moves").html("" + moveCounter + " Moves");
+    
+    
+let startingStars = 3; // The starting amount of stars.
+for (var i = 0; i < startingStars; i++) {
+    $(".stars").append("<li><i class='fa fa-star'></i></li>");
+}
 // Game functions
 
 function Newcards() {
@@ -34,39 +41,31 @@ function Newcards() {
     });  
 }
 
-const Restart = function() {
+const Restart = function() { // Moves don't reset, stars go away
 $(".restart").on('click', function() {
     $(".deck").empty();
     $(".stars").empty();
-    movecounter = 0;
+    $(".moves").html("" + moveCounter + " Moves");
     
     let x = new Newcards(); // Keep
     let y = new Card(); // Card
     let z = new countDown(); // Keep
-    let yz = new Stars();
 });
 }
 
 const Timer = setInterval(countDown, 1000);
 function countDown() {
     Seconds++;
-    console.log(Seconds);
 }
 
 function Moves() {
     moveCounter++;
     if (moveCounter === 1) {
         $(".moves").html("" + moveCounter + " Move");
-        countDown();
     } else {
         $(".moves").html("" + moveCounter + " Moves");
     }
-}
-
-function Stars() {
-    for (var i = 0; i < startingStars; i++) {
-        $(".stars").append("<li><i class='fa fa-star'></i></li>");
-    }
+    
     if (moveCounter == 11) {
         $(".stars li:nth-child(1)").remove();
     } else {
@@ -108,19 +107,23 @@ function clickedCard(card) { // (card) = event.target
         }
     }         
     
-    if (Matches == 8) { // All the cards have been pushed to the open array...
-        clearInterval(Timer); // clear the timer
-        let txt;
-        let totalStars = $(".stars li").length;
-        let Message = confirm("You've won! It only took you " + moveCounter + " turns, " + Seconds + " seconds, and you earned a star rating of " + totalStars + ". Play again?");
-        if (Message == true) {
-            txt = "You pressed OK!";
-        } else {
-            txt = "You pressed Cancel!";
+        if (Matches == 8) { // All the cards have been pushed to the open array...
+            clearInterval(Timer); // clear the timer
+            let txt;
+            let totalStars = $(".stars li").length;
+            
+            setTimeout(() => {
+                let Message = confirm("You've won! It only took you " + moveCounter + " turns, " + Seconds + " seconds, and you earned a star rating of " + totalStars + ". Play again?");
+                if (Message == true) {
+                    txt = new Restart();
+                } else {
+                    txt = "You pressed Cancel!";
+                }
+            }, 1 * 500);
         }
-    }
-    else {
-    }
+        else {
+        }
+        
 }
 
 
