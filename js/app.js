@@ -17,20 +17,24 @@ function shuffle(array) { // Randomization of array
 
 const cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"]; 
 
-// Starting values
-
 const openCards = []; // Empty array for the cards clicked upon.
-let Matches = 0; // The  starting amount of successful card matches.
-let Seconds = 0; // The timer starts at 0.
+const Timer = setInterval(countDown, 1000);
 
+function startingValues() {
+    let Matches = 0; // The  starting amount of successful card matches.
+    let Seconds = 0; // The timer starts at 0.
 
-let moveCounter = 0; // The starting amount of moves taken.
-    $(".moves").html("" + moveCounter + " Moves");
-    
-    
-let startingStars = 3; // The starting amount of stars.
-for (var i = 0; i < startingStars; i++) {
-    $(".stars").append("<li><i class='fa fa-star'></i></li>");
+    let moveCounter = 0; // The starting amount of moves taken.
+        $(".moves").html("" + moveCounter + " Moves");
+        
+    let startingStars = 3; // The starting amount of stars.
+    for (var i = 0; i < startingStars; i++) {
+        $(".stars").append("<li><i class='fa fa-star'></i></li>");
+    }
+}
+
+function countDown() {
+    Seconds++;
 }
 // Game functions
 
@@ -41,21 +45,16 @@ function Newcards() {
     });  
 }
 
-const Restart = function() { // Moves don't reset, stars go away
-$(".restart").on('click', function() {
-    $(".deck").empty();
-    $(".stars").empty();
-    $(".moves").html("" + moveCounter + " Moves");
-    
-    let x = new Newcards(); // Keep
-    let y = new Card(); // Card
-    let z = new countDown(); // Keep
-});
-}
-
-const Timer = setInterval(countDown, 1000);
-function countDown() {
-    Seconds++;
+const Restart = function() { // Moves and matches don't reset, stars go away.
+    $(".restart").on('click', function() {
+        $(".deck").empty();
+        $(".stars").empty();
+        
+        let x = new Newcards(); // Keep
+        let y = new Card(); // Card
+        let z = new countDown(); // Keep
+        let w = new Moves(); 
+    });
 }
 
 function Moves() {

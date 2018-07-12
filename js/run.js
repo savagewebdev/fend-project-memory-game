@@ -1,4 +1,4 @@
 Newcards();
 Restart();
 Card();
-
+startingValues();
