@@ -20,18 +20,17 @@ const cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bo
 const openCards = []; // Empty array for the cards clicked upon.
 const Timer = setInterval(countDown, 1000);
 
-function startingValues() {
-    let Matches = 0; // The  starting amount of successful card matches.
-    let Seconds = 0; // The timer starts at 0.
 
-    let moveCounter = 0; // The starting amount of moves taken.
+let Matches = 0; // The  starting amount of successful card matches.
+let Seconds = 0; // The timer starts at 0.
+
+let moveCounter = 0; // The starting amount of moves taken.
         $(".moves").html("" + moveCounter + " Moves");
         
-    let startingStars = 3; // The starting amount of stars.
+let startingStars = 3; // The starting amount of stars.
     for (var i = 0; i < startingStars; i++) {
         $(".stars").append("<li><i class='fa fa-star'></i></li>");
     }
-}
 
 function countDown() {
     Seconds++;
