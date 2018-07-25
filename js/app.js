@@ -21,16 +21,19 @@ const openCards = []; // Empty array for the cards clicked upon.
 const Timer = setInterval(countDown, 1000);
 
 
-let Matches = 0; // The  starting amount of successful card matches.
-let Seconds = 0; // The timer starts at 0.
+const Startingvalues = function() {
+    this.Matches = 0; // The starting amount of successful card matches.
+    this.Seconds = 0; // The timer starts at 0.
 
-let moveCounter = 0; // The starting amount of moves taken.
-        $(".moves").html("" + moveCounter + " Moves");
-        
-let startingStars = 3; // The starting amount of stars.
-    for (var i = 0; i < startingStars; i++) {
-        $(".stars").append("<li><i class='fa fa-star'></i></li>");
-    }
+    this.moveCounter = 0; // The starting amount of moves taken.
+            $(".moves").html("" + moveCounter + " Moves");
+            
+    this.startingStars = 3; // The starting amount of stars.
+        for (var i = 0; i < this.startingStars; i++) {
+            $(".stars").append("<li><i class='fa fa-star'></i></li>");
+        }
+}
+    
 
 function countDown() {
     Seconds++;
@@ -50,9 +53,15 @@ const Restart = function() { // Moves and matches don't reset, stars go away.
         $(".stars").empty();
         
         let x = new Newcards(); // Keep
-        let y = new Card(); // Card
+        let y = new Card(); // Keep
         let z = new countDown(); // Keep
-        let w = new Moves(); 
+        let w = new Moves(); // Keep?
+        
+//        Matches = undefined;
+//        Seconds = undefined;
+//        moveCounter = undefined;
+        
+        
     });
 }
 
@@ -114,6 +123,8 @@ function clickedCard(card) { // (card) = event.target
                 let Message = confirm("You've won! It only took you " + moveCounter + " turns, " + Seconds + " seconds, and you earned a star rating of " + totalStars + ". Play again?");
                 if (Message == true) {
                     txt = new Restart();
+                    
+                    
                 } else {
                     txt = "You pressed Cancel!";
                 }
