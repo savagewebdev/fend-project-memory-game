@@ -36,7 +36,7 @@ const Startingvalues = function() {
     
 
 function countDown() {
-    Seconds++;
+    Seconds++; // Draws upon the starting value of Seconds
 }
 // Game functions
 
