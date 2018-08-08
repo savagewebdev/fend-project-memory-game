@@ -20,27 +20,18 @@ const cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bo
 const openCards = []; // Empty array for the cards clicked upon.
 const Timer = setInterval(countDown, 1000);
 
-
-const Values = {
-    zero: 0,
-    three: 3
+const Values = function() {
+    let zero = 0;
+    let three = 3;
 }
 
-function Convertthree() {
-    return Values.three.valueOf();
-}
+let Matches = Values.zero; // The starting amount of successful card matches.
+let Seconds = Values.zero; // The timer starts at 0.
 
-function Convertzero() {
-        return Values.zero.valueOf();
-}
-
-let Matches = Convertzero.call(); // The starting amount of successful card matches.
-let Seconds = Convertzero.call(); // The timer starts at 0.
-
-let moveCounter = Convertzero.call(); // The starting amount of moves taken.
+let moveCounter = Values.zero; // The starting amount of moves taken.
             $(".moves").html("" + moveCounter + " Moves");
             
-let startingStars = Convertthree.call(); // The starting amount of stars.
+let startingStars = Values.zero; // The starting amount of stars.
         for (var i = 0; i < startingStars; i++) {
             $(".stars").append("<li><i class='fa fa-star'></i></li>");
         }
@@ -69,13 +60,7 @@ const Restart = function() { // Moves and matches don't reset, stars go away.
         let y = new Card(); // Keep
         let z = new countDown(); // Keep
         let w = new Moves(); // Keep?
-        let xx = new Convert();
-        
-//        Matches = undefined;
-//        Seconds = undefined;
-//        moveCounter = undefined;
-        
-        
+        let xx = new Values();
     });
 }
 
