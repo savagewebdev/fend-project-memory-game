@@ -40,10 +40,8 @@ function clickedCard(card) { // (card) = event.target
 	}
 }
 
-// Starting Values
 
 
-// Convert values to be usable?
 
 
 
