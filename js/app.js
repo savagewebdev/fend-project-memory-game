@@ -21,18 +21,31 @@ const openCards = []; // Empty array for the cards clicked upon.
 const Timer = setInterval(countDown, 1000);
 
 
-const Startingvalues = function() {
-    this.Matches = 0; // The starting amount of successful card matches.
-    this.Seconds = 0; // The timer starts at 0.
+const Values = {
+    zero: 0,
+    three: 3
+}
 
-    this.moveCounter = 0; // The starting amount of moves taken.
+function Convertthree() {
+    return Values.three.valueOf();
+}
+
+function Convertzero() {
+        return Values.zero.valueOf();
+}
+
+let Matches = Convertzero.call(); // The starting amount of successful card matches.
+let Seconds = Convertzero.call(); // The timer starts at 0.
+
+let moveCounter = Convertzero.call(); // The starting amount of moves taken.
             $(".moves").html("" + moveCounter + " Moves");
             
-    this.startingStars = 3; // The starting amount of stars.
-        for (var i = 0; i < this.startingStars; i++) {
+let startingStars = Convertthree.call(); // The starting amount of stars.
+        for (var i = 0; i < startingStars; i++) {
             $(".stars").append("<li><i class='fa fa-star'></i></li>");
         }
-}
+
+
     
 
 function countDown() {
@@ -56,6 +69,7 @@ const Restart = function() { // Moves and matches don't reset, stars go away.
         let y = new Card(); // Keep
         let z = new countDown(); // Keep
         let w = new Moves(); // Keep?
+        let xx = new Convert();
         
 //        Matches = undefined;
 //        Seconds = undefined;

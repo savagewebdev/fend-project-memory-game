@@ -1,6 +1,8 @@
 Newcards();
 Restart();
 Card();
+Convertzero();
+Convertthree();
 
 
 // Moves.call()
