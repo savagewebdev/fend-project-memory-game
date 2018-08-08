@@ -20,43 +20,25 @@ const cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bo
 const openCards = []; // Empty array for the cards clicked upon.
 const Timer = setInterval(countDown, 1000);
 
-<<<<<<< HEAD
-function Values(zero, three){ 
-    this.zero = 0;
-    this.three = 3;
-    this.applyValues = applyValues;
+
+const Values = {
+    a: 0,
+    b: 3
 };
 
-function applyValues(){
-    let starter3 = this.three;
-    return starter3;
-}
+const beginValues = Object.create(Values);
 
-let Matches = Values.zero; // The starting amount of successful card matches.
-let Seconds = Values.zero; // The timer starts at 0.
 
-let moveCounter = Values.zero; // The starting amount of moves taken.
+let Matches = Values.a; // The starting amount of successful card matches.
+let Seconds = Values.a; // The timer starts at 0.
+let moveCounter = Values.a; // The starting amount of moves taken.
             $(".moves").html("" + moveCounter + " Moves");
             
-let startingStars = Values.applyValues(); // The starting amount of stars.
-        for (var i = 0; i < startingStars; i++) {
-=======
-
-const Startingvalues = function() {
-    this.Matches = 0; // The starting amount of successful card matches.
-    this.Seconds = 0; // The timer starts at 0.
-
-    this.moveCounter = 0; // The starting amount of moves taken.
-            $(".moves").html("" + moveCounter + " Moves");
-            
-    this.startingStars = 3; // The starting amount of stars.
-        for (var i = 0; i < this.startingStars; i++) {
->>>>>>> parent of 3682652... Successful call use
-            $(".stars").append("<li><i class='fa fa-star'></i></li>");
-        }
-}
+let startingStars = Values.b; // The starting amount of stars.
+for (var i = 0; i < startingStars; i++) {
+        $(".stars").append("<li><i class='fa fa-star'></i></li>");
+    }
     
-
 function countDown() {
     Seconds++; // Draws upon the starting value of Seconds
 }
@@ -74,20 +56,12 @@ const Restart = function() { // Moves and matches don't reset, stars go away.
         $(".deck").empty();
         $(".stars").empty();
         
+        let doover = beginValues;
         let x = new Newcards(); // Keep
         let y = new Card(); // Keep
         let z = new countDown(); // Keep
-        let w = new Moves(); // Keep?
-<<<<<<< HEAD
-        let xx = new Values();
-=======
         
-//        Matches = undefined;
-//        Seconds = undefined;
-//        moveCounter = undefined;
-        
-        
->>>>>>> parent of 3682652... Successful call use
+
     });
 }
 
@@ -129,7 +103,6 @@ function clickedCard(card) { // (card) = event.target
         if (topCard.firstChild.className === i.className) { // to the card that was recently clicked.
         Matches++;// it automatically remains open...  
 
-        
         } else { // otherwise it closes within a certain timeframe.
             setTimeout(() => {
                 topCard.classList.remove('open', 'show');
@@ -139,18 +112,14 @@ function clickedCard(card) { // (card) = event.target
             }, 1 * 750);
         }
     }         
-    
         if (Matches == 8) { // All the cards have been pushed to the open array...
             clearInterval(Timer); // clear the timer
             let txt;
             let totalStars = $(".stars li").length;
-            
             setTimeout(() => {
                 let Message = confirm("You've won! It only took you " + moveCounter + " turns, " + Seconds + " seconds, and you earned a star rating of " + totalStars + ". Play again?");
                 if (Message == true) {
                     txt = new Restart();
-                    
-                    
                 } else {
                     txt = "You pressed Cancel!";
                 }
@@ -158,7 +127,6 @@ function clickedCard(card) { // (card) = event.target
         }
         else {
         }
-        
 }
 
 
