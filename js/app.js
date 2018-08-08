@@ -56,12 +56,10 @@ const Restart = function() { // Moves and matches don't reset, stars go away.
         $(".deck").empty();
         $(".stars").empty();
         
-        let doover = beginValues;
+        beginValues, Matches, Seconds, moveCounter, startingStars;
         let x = new Newcards(); // Keep
         let y = new Card(); // Keep
         let z = new countDown(); // Keep
-        
-
     });
 }
 
