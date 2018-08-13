@@ -29,7 +29,7 @@ const Values = function(a) {
 let Matches = Values(0); // The starting amount of successful card matches.
 let Seconds = Values(0); // The timer starts at 0.
 let moveCounter = Values(0); // The starting amount of moves taken.
-let startingStars = new Values(3); // The starting amount of stars.
+let startingStars = Values(3); // The starting amount of stars.
 
 $(".moves").html("" + moveCounter + " Moves");
 for (var i = 0; i < startingStars; i++) {
