@@ -21,20 +21,17 @@ const openCards = []; // Empty array for the cards clicked upon.
 const Timer = setInterval(countDown, 1000);
 
 
-const Values = {
-    a: 0,
-    b: 3
-};
+const Values = function(a) {
+    this.a = a;
+    return a.valueOf();
+}
 
-const beginValues = Object.create(Values);
+let Matches = Values(0); // The starting amount of successful card matches.
+let Seconds = Values(0); // The timer starts at 0.
+let moveCounter = Values(0); // The starting amount of moves taken.
+let startingStars = new Values(3); // The starting amount of stars.
 
-
-let Matches = Values.a; // The starting amount of successful card matches.
-let Seconds = Values.a; // The timer starts at 0.
-let moveCounter = Values.a; // The starting amount of moves taken.
-            $(".moves").html("" + moveCounter + " Moves");
-            
-let startingStars = Values.b; // The starting amount of stars.
+$(".moves").html("" + moveCounter + " Moves");
 for (var i = 0; i < startingStars; i++) {
         $(".stars").append("<li><i class='fa fa-star'></i></li>");
     }
@@ -56,7 +53,10 @@ const Restart = function() { // Moves and matches don't reset, stars go away.
         $(".deck").empty();
         $(".stars").empty();
         
-        beginValues, Matches, Seconds, moveCounter, startingStars;
+        const beginValues = new Values()
+        
+        Matches, Seconds, moveCounter, startingStars;
+        
         let x = new Newcards(); // Keep
         let y = new Card(); // Keep
         let z = new countDown(); // Keep
