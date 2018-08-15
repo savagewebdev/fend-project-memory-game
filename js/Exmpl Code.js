@@ -137,3 +137,5 @@ const Restart = function() { // Moves and matches don't reset, stars go away.
 	$(".restart").on('click', function() {
 		$(".deck").empty();
 		$(".stars").empty();
+	}
+}
