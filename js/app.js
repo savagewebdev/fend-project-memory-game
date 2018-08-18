@@ -39,14 +39,14 @@ function clickedCard(card) { // (card) = event.target
 
     if (openCards.length == 0) { // If the openCards array is empty, then fill it with the active card that has been pushed.
         openCards.push(card);
-        Moves();  
+        Moves.add;  
     }
     
     else { // If the first turn has been completed, then
         topCard = openCards.pop(); // the top card is taken and compared...
         
         if (topCard.firstChild.className === i.className) { // to the card that was recently clicked.
-        Matches++;// it automatically remains open...  
+        Match.match;// it automatically remains open...  
 
         } else { // otherwise it closes within a certain timeframe.
             setTimeout(() => {
@@ -110,7 +110,7 @@ const Stars = function(startingStars) {
 }
 
 Stars.prototype.star = function() {
-    startingStars--;
+//    startingStars--;
     if (moveCounter == 11) {
         $(".stars li:nth-child(1)").remove();
     } else {
@@ -123,13 +123,12 @@ Stars.prototype.star = function() {
 
 const Timer = setInterval(Countdown, 1000); // timer logic
     
-const Countdown = function(time) { // initializer of timer?
-    Seconds++;
+const Countdown = function() { // initializer of timer
+    let Seconds++;
 }
 
-Countdown.prototype.reset = function() { // stopper of timer
-    clearInterval(Timer);
-}
+clearInterval(Timer); // Stopper of timer
+
 
 // Reset Game
 
@@ -137,5 +136,10 @@ const Restart = function() { // Moves and matches don't reset, stars go away.
     $(".restart").on('click', function() {
         $(".deck").empty();
         $(".stars").empty();
+        
+        new Moves(0);
+        new Match(0);
+        new Stars(3);
+        new Countdown();
     }
 }
