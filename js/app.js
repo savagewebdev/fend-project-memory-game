@@ -23,7 +23,7 @@ function Newcards() {
 }
 
 const openCards = []; // Empty array for the cards clicked upon.
-const Timer = setInterval(Countdown, 1000); // timer logic
+const Timer = setInterval(Countdown, 1000); // Timer logic entry.
 
 // Card selection and functionality
 
@@ -122,8 +122,12 @@ Stars.prototype.star = function() {
 
 // Timer
 
-function Countdown() { // initializer of timer
-     Seconds++;
+function Countdown(zero) { // initializer of timer
+     this.zero = zero;
+}
+
+Countdown.prototype.count = function() {
+    this.zero++;
 }
 
 //clearInterval(Timer); // Stopper of timer
@@ -136,6 +140,7 @@ const Restart = function() { // Moves and matches don't reset, stars go away.
         $(".deck").empty();
         $(".stars").empty();
         
+        new Newcards();
         new Moves(0);
         new Match(0);
         new Stars(3);
