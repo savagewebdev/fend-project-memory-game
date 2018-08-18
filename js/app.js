@@ -23,6 +23,7 @@ function Newcards() {
 }
 
 const openCards = []; // Empty array for the cards clicked upon.
+const Timer = setInterval(Countdown, 1000); // timer logic
 
 // Card selection and functionality
 
@@ -121,13 +122,11 @@ Stars.prototype.star = function() {
 
 // Timer
 
-const Timer = setInterval(Countdown, 1000); // timer logic
-    
-const Countdown = function() { // initializer of timer
-    let Seconds++;
+function Countdown() { // initializer of timer
+     Seconds++;
 }
 
-clearInterval(Timer); // Stopper of timer
+//clearInterval(Timer); // Stopper of timer
 
 
 // Reset Game
@@ -142,4 +141,4 @@ const Restart = function() { // Moves and matches don't reset, stars go away.
         new Stars(3);
         new Countdown();
     }
-}
+)}
