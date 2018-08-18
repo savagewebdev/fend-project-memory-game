@@ -1,5 +1,3 @@
-// The preliminary code for the randomization and array of the card game.
-
 function shuffle(array) { // Randomization of array
     let currentIndex = array.length, temporaryValue, randomIndex; 
 
@@ -17,30 +15,6 @@ function shuffle(array) { // Randomization of array
 
 const cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-anchor", "fa fa-leaf", "fa fa-bicycle", "fa fa-diamond", "fa fa-bomb", "fa fa-leaf", "fa fa-bomb", "fa fa-bolt", "fa fa-bicycle", "fa fa-paper-plane-o", "fa fa-cube"]; 
 
-const openCards = []; // Empty array for the cards clicked upon.
-const Timer = setInterval(countDown, 1000);
-
-
-const Values = function(a) {
-    this.a = a;
-    return a.valueOf();
-}
-
-let Matches = Values(0); // The starting amount of successful card matches.
-let Seconds = Values(0); // The timer starts at 0.
-let moveCounter = Values(0); // The starting amount of moves taken.
-let startingStars = Values(3); // The starting amount of stars.
-
-$(".moves").html("" + moveCounter + " Moves");
-for (var i = 0; i < startingStars; i++) {
-        $(".stars").append("<li><i class='fa fa-star'></i></li>");
-    }
-    
-function countDown() {
-    Seconds++; // Draws upon the starting value of Seconds
-}
-// Game functions
-
 function Newcards() {
     shuffle(cards).map(function callback (currentValue) { // Create a new shuffled array (map).
     const addCard = "<li class='card'><i class=" + '"' + currentValue + '"' + "</i></li>"; 
@@ -48,36 +22,9 @@ function Newcards() {
     });  
 }
 
-const Restart = function() { // Moves and matches don't reset, stars go away.
-    $(".restart").on('click', function() {
-        $(".deck").empty();
-        $(".stars").empty();
-        
-        const beginValues = new Values()
-        
-        Matches, Seconds, moveCounter, startingStars;
-        
-        let x = new Newcards(); // Keep
-        let y = new Card(); // Keep
-        let z = new countDown(); // Keep
-    });
-}
+const openCards = []; // Empty array for the cards clicked upon.
 
-function Moves() {
-    moveCounter++;
-    if (moveCounter === 1) {
-        $(".moves").html("" + moveCounter + " Move");
-    } else {
-        $(".moves").html("" + moveCounter + " Moves");
-    }
-    
-    if (moveCounter == 11) {
-        $(".stars li:nth-child(1)").remove();
-    } else {
-    } if (moveCounter == 16) {
-        $(".stars li:nth-child(2)").remove();
-    }
-}
+// Card selection and functionality
 
 const Card = function() {
     $(".card").on('click', function(event) {
@@ -127,11 +74,68 @@ function clickedCard(card) { // (card) = event.target
         }
 }
 
+// Moves
 
+const Moves = function(moveCounter) {
+    this.moveCounter = moveCounter;
+    if (moveCounter === 1) {
+        $(".moves").html("" + moveCounter + " Move");
+    } else {
+        $(".moves").html("" + moveCounter + " Moves");
+    }
+}
 
+Moves.prototype.add = function() { 
+    this.moveCounter++;
+}
 
+// Match
 
+const Match = function(Matches) { // A constructor function produces difference because of what passses through 
+    this.Matches = Matches; // to a new function.
+}
 
+Match.prototype.match = function() { // The prototype function is similar because, when used, it does the same to all.
+    this.Matches++;
+}
 
+// Stars
 
+const Stars = function(startingStars) {
+    this.startingStars = startingStars;
+    
+    for (var i = 0; i < startingStars; i++) {
+            $(".stars").append("<li><i class='fa fa-star'></i></li>");
+        }
+}
 
+Stars.prototype.star = function() {
+    startingStars--;
+    if (moveCounter == 11) {
+        $(".stars li:nth-child(1)").remove();
+    } else {
+    } if (moveCounter == 16) {
+        $(".stars li:nth-child(2)").remove();
+    }
+}
+
+// Timer
+
+const Timer = setInterval(Countdown, 1000); // timer logic
+    
+const Countdown = function(time) { // initializer of timer?
+    Seconds++;
+}
+
+Countdown.prototype.reset = function() { // stopper of timer
+    clearInterval(Timer);
+}
+
+// Reset Game
+
+const Restart = function() { // Moves and matches don't reset, stars go away.
+    $(".restart").on('click', function() {
+        $(".deck").empty();
+        $(".stars").empty();
+    }
+}
