@@ -18,13 +18,23 @@ const cards = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bo
 function Newcards() {
     shuffle(cards).map(function callback (currentValue) { // Create a new shuffled array (map).
     const addCard = "<li class='card'><i class=" + '"' + currentValue + '"' + "</i></li>"; 
-        $(".deck").append(addCard);    
+        $(".deck").append(addCard);  
     });  
 }
 
 const openCards = []; // Empty array for the cards clicked upon.
-const Timer = setInterval(Countdown, 1000); // Timer logic entry.
 
+const Timer = setInterval(function() {
+    let x = new Seconds(0);
+}, 1000); // Timer logic entry.
+
+const Seconds = function(zip) {
+    this.zip = zip;
+}
+
+Seconds.prototype.count = function() {
+    zip++;
+}
 // Card selection and functionality
 
 const Card = function() {
@@ -34,20 +44,36 @@ const Card = function() {
 }
 
 function clickedCard(card) { // (card) = event.target
+
+
+//    Newcards.call(this, Match1);
+    
+    
+    
+
+
+
     card.classList.add('open', 'show');
     const i = card.firstChild;
     let topCard;
+    
+    
+    
+    
+    
+    
+    
 
     if (openCards.length == 0) { // If the openCards array is empty, then fill it with the active card that has been pushed.
         openCards.push(card);
-        Moves.add;  
+        Moves1.add();  
     }
     
     else { // If the first turn has been completed, then
         topCard = openCards.pop(); // the top card is taken and compared...
         
         if (topCard.firstChild.className === i.className) { // to the card that was recently clicked.
-        Match.match;// it automatically remains open...  
+        Match1.match();// it automatically remains open...  
 
         } else { // otherwise it closes within a certain timeframe.
             setTimeout(() => {
@@ -58,8 +84,9 @@ function clickedCard(card) { // (card) = event.target
             }, 1 * 750);
         }
     }         
-        if (Matches == 8) { // All the cards have been pushed to the open array...
+        if (Match1.Matches == 8) { // All the cards have been pushed to the open array...
             clearInterval(Timer); // clear the timer
+//            Timer = 0;
             let txt;
             let totalStars = $(".stars li").length;
             setTimeout(() => {
@@ -79,16 +106,24 @@ function clickedCard(card) { // (card) = event.target
 
 const Moves = function(moveCounter) {
     this.moveCounter = moveCounter;
-    if (moveCounter === 1) {
-        $(".moves").html("" + moveCounter + " Move");
-    } else {
-        $(".moves").html("" + moveCounter + " Moves");
-    }
 }
 
 Moves.prototype.add = function() { 
     this.moveCounter++;
+    if (this.moveCounter === 1) {
+        $(".moves").html("" + this.moveCounter + " Move");
+    } else {
+        $(".moves").html("" + this.moveCounter + " Moves");
+    }
+
+    if (this.moveCounter == 11) {
+        $(".stars li:nth-child(1)").remove();
+    } else {
+    } if (this.moveCounter == 16) {
+        $(".stars li:nth-child(2)").remove();
+    }
 }
+
 
 // Match
 
@@ -110,26 +145,6 @@ const Stars = function(startingStars) {
         }
 }
 
-Stars.prototype.star = function() {
-//    startingStars--;
-    if (moveCounter == 11) {
-        $(".stars li:nth-child(1)").remove();
-    } else {
-    } if (moveCounter == 16) {
-        $(".stars li:nth-child(2)").remove();
-    }
-}
-
-// Timer
-
-function Countdown(zero) { // initializer of timer
-     this.zero = zero;
-}
-
-Countdown.prototype.count = function() {
-    this.zero++;
-}
-
 //clearInterval(Timer); // Stopper of timer
 
 
@@ -140,10 +155,8 @@ const Restart = function() { // Moves and matches don't reset, stars go away.
         $(".deck").empty();
         $(".stars").empty();
         
-        new Newcards();
-        new Moves(0);
-        new Match(0);
-        new Stars(3);
-        new Countdown();
+        let x = new Newcards();
+
+
     }
 )}
