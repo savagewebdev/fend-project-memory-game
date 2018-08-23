@@ -24,17 +24,24 @@ function Newcards() {
 
 const openCards = []; // Empty array for the cards clicked upon.
 
-const Timer = setInterval(function() {
-    let x = new Seconds(0);
-}, 1000); // Timer logic entry.
+// Do you have the time? #GreenDay
 
-const Seconds = function(zip) {
-    this.zip = zip;
+const Timer = setInterval(Seconds, 1000); // Timer logic entry.
+
+function Seconds() { // Zero.cero method should call second integer.
+    Zero1.integer++;
 }
 
-Seconds.prototype.count = function() {
-    zip++;
+const Zero = function(integer) {
+    this.integer = integer;
 }
+
+let Zero1 = new Zero(0);
+//let cero = Zero1.integer;
+
+
+
+
 // Card selection and functionality
 
 const Card = function() {
@@ -45,24 +52,9 @@ const Card = function() {
 
 function clickedCard(card) { // (card) = event.target
 
-
-//    Newcards.call(this, Match1);
-    
-    
-    
-
-
-
     card.classList.add('open', 'show');
     const i = card.firstChild;
     let topCard;
-    
-    
-    
-    
-    
-    
-    
 
     if (openCards.length == 0) { // If the openCards array is empty, then fill it with the active card that has been pushed.
         openCards.push(card);
@@ -106,6 +98,9 @@ function clickedCard(card) { // (card) = event.target
 
 const Moves = function(moveCounter) {
     this.moveCounter = moveCounter;
+    if (this.moveCounter === 0) {
+    $(".moves").html("" + this.moveCounter + " Moves");
+    }
 }
 
 Moves.prototype.add = function() { 
@@ -122,8 +117,8 @@ Moves.prototype.add = function() {
     } if (this.moveCounter == 16) {
         $(".stars li:nth-child(2)").remove();
     }
+    
 }
-
 
 // Match
 
@@ -139,14 +134,10 @@ Match.prototype.match = function() { // The prototype function is similar becaus
 
 const Stars = function(startingStars) {
     this.startingStars = startingStars;
-    
     for (var i = 0; i < startingStars; i++) {
             $(".stars").append("<li><i class='fa fa-star'></i></li>");
         }
 }
-
-//clearInterval(Timer); // Stopper of timer
-
 
 // Reset Game
 
