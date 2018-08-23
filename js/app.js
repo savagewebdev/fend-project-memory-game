@@ -36,7 +36,7 @@ const Zero = function(integer) {
     this.integer = integer;
 }
 
-let Zero1 = new Zero(0);
+
 //let cero = Zero1.integer;
 
 
@@ -58,7 +58,8 @@ function clickedCard(card) { // (card) = event.target
 
     if (openCards.length == 0) { // If the openCards array is empty, then fill it with the active card that has been pushed.
         openCards.push(card);
-        Moves1.add();  
+        Moves1.add()
+        Moves1.rulez();  
     }
     
     else { // If the first turn has been completed, then
@@ -76,7 +77,7 @@ function clickedCard(card) { // (card) = event.target
             }, 1 * 750);
         }
     }         
-        if (Match1.Matches == 8) { // All the cards have been pushed to the open array...
+        if (Match1.matches == 8) { // All the cards have been pushed to the open array...
             clearInterval(Timer); // clear the timer
 //            Timer = 0;
             let txt;
@@ -98,56 +99,62 @@ function clickedCard(card) { // (card) = event.target
 
 const Moves = function(moveCounter) {
     this.moveCounter = moveCounter;
-    if (this.moveCounter === 0) {
-    $(".moves").html("" + this.moveCounter + " Moves");
-    }
 }
 
 Moves.prototype.add = function() { 
     this.moveCounter++;
+}
+
+Moves.prototype.rulez = function() {
     if (this.moveCounter === 1) {
         $(".moves").html("" + this.moveCounter + " Move");
     } else {
         $(".moves").html("" + this.moveCounter + " Moves");
     }
-
     if (this.moveCounter == 11) {
         $(".stars li:nth-child(1)").remove();
     } else {
     } if (this.moveCounter == 16) {
         $(".stars li:nth-child(2)").remove();
     }
-    
 }
 
 // Match
 
-const Match = function(Matches) { // A constructor function produces difference because of what passses through 
-    this.Matches = Matches; // to a new function.
+const Match = function(matches) { // A constructor function produces difference because of what passses through 
+    this.matches = matches; // to a new function.
 }
 
 Match.prototype.match = function() { // The prototype function is similar because, when used, it does the same to all.
-    this.Matches++;
+    this.matches++;
 }
 
 // Stars
 
 const Stars = function(startingStars) {
     this.startingStars = startingStars;
-    for (var i = 0; i < startingStars; i++) {
+    for (let i = 0; i < startingStars; i++) {
             $(".stars").append("<li><i class='fa fa-star'></i></li>");
         }
 }
 
 // Reset Game
 
-const Restart = function() { // Moves and matches don't reset, stars go away.
-    $(".restart").on('click', function() {
-        $(".deck").empty();
-        $(".stars").empty();
-        
-        let x = new Newcards();
+function Delete() { // Moves and matches don't reset, stars go away.
+    delete Match1.matches;
+    delete Moves1.moveCounter;
+    Moves1.rulez();
+    delete Stars1.startingStars;
+    delete Zero1.integer; 
+    $(".deck").empty();
+}
 
-
-    }
-)}
+$(".restart").on('click', function() {
+    let x = new Delete();
+    Newcards();
+    Match1.matches = 0;
+    Moves1.moveCounter = 0;
+    Moves1.rulez();
+    Stars1.startingStars = 3;
+    Zero1.integer = 0;
+});
