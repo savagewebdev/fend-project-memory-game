@@ -97,15 +97,15 @@ function clickedCard(card) { // (card) = event.target
 
 // Moves
 
-const Moves = function(moveCounter) {
+const Moves = function(moveCounter) { // Constructor function.
     this.moveCounter = moveCounter;
 }
 
-Moves.prototype.add = function() { 
+Moves.prototype.add = function() { // Adds the value of moveCounter.
     this.moveCounter++;
 }
 
-Moves.prototype.rulez = function() {
+Moves.prototype.rulez = function() { // Takes the value of the moveCounter and applies the logic of the game.
     if (this.moveCounter === 1) {
         $(".moves").html("" + this.moveCounter + " Move");
     } else {
@@ -132,7 +132,7 @@ Match.prototype.match = function() { // The prototype function is similar becaus
 // Stars
 
 const Stars = function(startingStars) {
-    this.startingStars = startingStars;
+//    this.startingStars = startingStars;
     for (let i = 0; i < startingStars; i++) {
             $(".stars").append("<li><i class='fa fa-star'></i></li>");
         }
@@ -141,20 +141,34 @@ const Stars = function(startingStars) {
 // Reset Game
 
 function Delete() { // Moves and matches don't reset, stars go away.
-    delete Match1.matches;
+    delete Match1.matches; // Deletion of current Match value.
     delete Moves1.moveCounter;
-    Moves1.rulez();
-    delete Stars1.startingStars;
-    delete Zero1.integer; 
+    $(".stars").empty()
+
+//    clearInterval(Timer);
+//    delete Zero1.integer; 
     $(".deck").empty();
 }
 
 $(".restart").on('click', function() {
-    let x = new Delete();
-    Newcards();
-    Match1.matches = 0;
-    Moves1.moveCounter = 0;
-    Moves1.rulez();
-    Stars1.startingStars = 3;
-    Zero1.integer = 0;
+    let x = new Delete(); // Delete everything, remove deck.
+    
+
 });
+
+function Loader() {
+    let w = new Newcards(); // Reconstruct the deck
+    let y = new Card(); // and the deck's functionality.
+ 
+
+Moves1.moveCounter = 0; // Recreates the integer and reapplies the rules.
+Moves1.rulez(); // May not be needed, even.
+    
+Match1.matches = 0;
+//Stars1.startingStars = 3;
+
+//    let Zero1 = new Zero(0);
+//    const Timer = setInterval(Seconds, 1000);
+}
+
+
