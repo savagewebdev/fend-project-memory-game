@@ -83,7 +83,7 @@ function clickedCard(card) { // (card) = event.target
             let txt;
             let totalStars = $(".stars li").length;
             setTimeout(() => {
-                let Message = confirm("You've won! It only took you " + moveCounter + " turns, " + Seconds + " seconds, and you earned a star rating of " + totalStars + ". Play again?");
+                let Message = confirm("You've won! It only took you " + Moves1.moveCounter + " turns, " + Seconds + " seconds, and you earned a star rating of " + totalStars + ". Play again?");
                 if (Message == true) {
                     txt = new Restart();
                 } else {
@@ -165,7 +165,7 @@ Moves1.moveCounter = 0; // Recreates the integer and reapplies the rules.
 Moves1.rulez(); // May not be needed, even.
     
 Match1.matches = 0;
-//Stars1.startingStars = 3;
+Stars(3);
 
 //    let Zero1 = new Zero(0);
 //    const Timer = setInterval(Seconds, 1000);
