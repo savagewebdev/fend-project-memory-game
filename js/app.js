@@ -83,7 +83,7 @@ function clickedCard(card) { // (card) = event.target
             let txt;
             let totalStars = $(".stars li").length;
             setTimeout(() => {
-                let Message = confirm("You've won! It only took you " + Moves1.moveCounter + " turns, " + Seconds + " seconds, and you earned a star rating of " + totalStars + ". Play again?");
+                let Message = confirm("You've won! It only took you " + Moves1.moveCounter + " turns, " + Zero1.integer + " seconds, and you earned a star rating of " + totalStars + ". Play again?");
                 if (Message == true) {
                     txt = new Restart();
                 } else {
@@ -143,6 +143,7 @@ const Stars = function(startingStars) {
 function Delete() { // Moves and matches don't reset, stars go away.
     delete Match1.matches; // Deletion of current Match value.
     delete Moves1.moveCounter;
+    delete Zero1.integer;
     $(".stars").empty()
 
 //    clearInterval(Timer);
@@ -159,13 +160,14 @@ $(".restart").on('click', function() {
 function Loader() {
     let w = new Newcards(); // Reconstruct the deck
     let y = new Card(); // and the deck's functionality.
- 
+    let z = setInterval(Seconds, 1000);
 
 Moves1.moveCounter = 0; // Recreates the integer and reapplies the rules.
 Moves1.rulez(); // May not be needed, even.
-    
 Match1.matches = 0;
+Zero1.integer = 0;
 Stars(3);
+
 
 //    let Zero1 = new Zero(0);
 //    const Timer = setInterval(Seconds, 1000);
