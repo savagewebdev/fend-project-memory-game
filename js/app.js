@@ -1,12 +1,12 @@
-function shuffle(array) { // Randomization of array
+function shuffle(array) { 
     let currentIndex = array.length, temporaryValue, randomIndex; 
 
-    while (currentIndex !== 0) { // While there remain elements left to shuffle...
+    while (currentIndex !== 0) { 
     
-        randomIndex = Math.floor(Math.random() * currentIndex); // Pick a remaining element
+        randomIndex = Math.floor(Math.random() * currentIndex); 
         currentIndex -= 1;
         
-        temporaryValue = array[currentIndex]; // And swap it with the current element
+        temporaryValue = array[currentIndex]; 
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
@@ -22,13 +22,10 @@ function Newcards() {
     });  
 }
 
-const openCards = []; // Empty array for the cards clicked upon.
-
-// Do you have the time? #GreenDay
-
+const openCards = []; 
 const Timer = setInterval(Seconds, 1000); // Timer logic entry.
 
-function Seconds() { // Zero.cero method should call second integer.
+function Seconds() { 
     Zero1.integer++;
 }
 
@@ -36,39 +33,29 @@ const Zero = function(integer) {
     this.integer = integer;
 }
 
-
-//let cero = Zero1.integer;
-
-
-
-
-// Card selection and functionality
-
 const Card = function() {
     $(".card").on('click', function(event) {
         clickedCard(event.target);
     });
 }
 
-function clickedCard(card) { // (card) = event.target
+function clickedCard(card) { 
 
     card.classList.add('open', 'show');
     const i = card.firstChild;
     let topCard;
 
-    if (openCards.length == 0) { // If the openCards array is empty, then fill it with the active card that has been pushed.
+    if (openCards.length == 0) { 
         openCards.push(card);
         Moves1.add()
         Moves1.rulez();  
     }
     
-    else { // If the first turn has been completed, then
-        topCard = openCards.pop(); // the top card is taken and compared...
-        
-        if (topCard.firstChild.className === i.className) { // to the card that was recently clicked.
-        Match1.match();// it automatically remains open...  
-
-        } else { // otherwise it closes within a certain timeframe.
+    else { 
+        topCard = openCards.pop(); 
+        if (topCard.firstChild.className === i.className) { 
+        Match1.match(); 
+        } else { 
             setTimeout(() => {
                 topCard.classList.remove('open', 'show');
                 card.classList.remove('open', 'show');
@@ -77,15 +64,14 @@ function clickedCard(card) { // (card) = event.target
             }, 1 * 750);
         }
     }         
-        if (Match1.matches == 8) { // All the cards have been pushed to the open array...
-            clearInterval(Timer); // clear the timer
-//            Timer = 0;
+        if (Match1.matches == 8) {
+            clearInterval(Timer);
             let txt;
             let totalStars = $(".stars li").length;
             setTimeout(() => {
                 let Message = confirm("You've won! It only took you " + Moves1.moveCounter + " turns, " + Zero1.integer + " seconds, and you earned a star rating of " + totalStars + ". Play again?");
                 if (Message == true) {
-                    txt = new Restart();
+                    txt = new Delete();
                 } else {
                     txt = "You pressed Cancel!";
                 }
@@ -95,17 +81,15 @@ function clickedCard(card) { // (card) = event.target
         }
 }
 
-// Moves
-
-const Moves = function(moveCounter) { // Constructor function.
+const Moves = function(moveCounter) { 
     this.moveCounter = moveCounter;
 }
 
-Moves.prototype.add = function() { // Adds the value of moveCounter.
+Moves.prototype.add = function() { 
     this.moveCounter++;
 }
 
-Moves.prototype.rulez = function() { // Takes the value of the moveCounter and applies the logic of the game.
+Moves.prototype.rulez = function() { 
     if (this.moveCounter === 1) {
         $(".moves").html("" + this.moveCounter + " Move");
     } else {
@@ -119,58 +103,46 @@ Moves.prototype.rulez = function() { // Takes the value of the moveCounter and a
     }
 }
 
-// Match
-
-const Match = function(matches) { // A constructor function produces difference because of what passses through 
-    this.matches = matches; // to a new function.
+const Match = function(matches) { 
+    this.matches = matches; 
 }
 
-Match.prototype.match = function() { // The prototype function is similar because, when used, it does the same to all.
+Match.prototype.match = function() { 
     this.matches++;
 }
 
-// Stars
-
 const Stars = function(startingStars) {
-//    this.startingStars = startingStars;
     for (let i = 0; i < startingStars; i++) {
             $(".stars").append("<li><i class='fa fa-star'></i></li>");
         }
 }
 
-// Reset Game
-
-function Delete() { // Moves and matches don't reset, stars go away.
-    delete Match1.matches; // Deletion of current Match value.
+function Delete() { 
+    delete Match1.matches; 
     delete Moves1.moveCounter;
     delete Zero1.integer;
     $(".stars").empty()
-
-//    clearInterval(Timer);
-//    delete Zero1.integer; 
     $(".deck").empty();
+    Loader();
 }
 
 $(".restart").on('click', function() {
-    let x = new Delete(); // Delete everything, remove deck.
-    
+    let x = new Delete(); 
+    Loader();
 
 });
 
 function Loader() {
-    let w = new Newcards(); // Reconstruct the deck
-    let y = new Card(); // and the deck's functionality.
+    let w = new Newcards(); 
+    let y = new Card(); 
     let z = setInterval(Seconds, 1000);
 
-Moves1.moveCounter = 0; // Recreates the integer and reapplies the rules.
-Moves1.rulez(); // May not be needed, even.
+Moves1.moveCounter = 0; 
+Moves1.rulez(); 
 Match1.matches = 0;
 Zero1.integer = 0;
 Stars(3);
 
-
-//    let Zero1 = new Zero(0);
-//    const Timer = setInterval(Seconds, 1000);
 }
 
 
