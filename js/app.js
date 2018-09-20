@@ -23,6 +23,7 @@ function Newcards() {
 }
 
 const openCards = []; 
+
 const Timer = setInterval(Seconds, 1000); // Timer logic entry.
 
 function Seconds() { 
@@ -33,37 +34,50 @@ const Zero = function(integer) {
     this.integer = integer;
 }
 
-const Card = function() {
-    $(".card").on('click', function(event) {
-        clickedCard(event.target);
+const Card = function() {    
+    $(".card").on('click', function(event) { // Whenever a card is click on, the clickedCard() function is drawn
+        clickedCard(event.target);    // using the card clicked on as its parameter.
     });
-}
+}        
 
 function clickedCard(card) { 
-
-    card.classList.add('open', 'show');
-    const i = card.firstChild;
-    let topCard;
+    const i = card.firstChild; // The card clicked on is defined is i.
+    var topCard;
+    if (topCard == undefined) {
+        card.classList.add('open', 'show'); 
+    } 
+//    else {
+//        $(".card").prop( "disabled", true);
+//    }
+     // your code here.
+     // Right away, every time a card is clicked, it is visually flipped to open...
+    
+    
+    
 
     if (openCards.length == 0) { 
-        openCards.push(card);
+        openCards.push(card); // ...although this is when the card is actually pushed into the openCards[] array.
         Moves1.add()
         Moves1.rulez();  
     }
     
     else { 
-        topCard = openCards.pop(); 
-        if (topCard.firstChild.className === i.className) { 
-        Match1.match(); 
+        topCard = openCards.pop();   // topCard is defined as the last card placed into the openCards array...
+        $(".card").prop("disabled", true);
+        if (topCard.firstChild.className === i.className) {  // ...and the two are compared...
+        Match1.match(); // ...to form a match.
         } else { 
-            setTimeout(() => {
+            $(".card").off('click');
+            setTimeout(() => { // If no match is found, then both cards are removed and closed.
                 topCard.classList.remove('open', 'show');
                 card.classList.remove('open', 'show');
                 topCard.classList.add('close');
                 card.classList.add('close');
+                Card();
             }, 1 * 750);
         }
-    }         
+    }
+    
         if (Match1.matches == 8) {
             clearInterval(Timer);
             let txt;
