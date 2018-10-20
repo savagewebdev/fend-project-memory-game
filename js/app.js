@@ -28,9 +28,10 @@ const Timer = setInterval(Seconds, 1000); // Timer logic entry.
 
 function Seconds() { 
     Zero1.integer++;
+    $(".timer").text("// Clock: " + Zero1.integer);
 }
 
-const Zero = function(integer) {
+const Zero = function(integer) { // A constructor function to set the timer's beginning.
     this.integer = integer;
 }
 
@@ -86,6 +87,7 @@ function clickedCard(card) {
                 let Message = confirm("You've won! It only took you " + Moves1.moveCounter + " turns, " + Zero1.integer + " seconds, and you earned a star rating of " + totalStars + ". Play again?");
                 if (Message == true) {
                     txt = new Delete();
+                    let z = setInterval(Seconds, 1000);
                 } else {
                     txt = "You pressed Cancel!";
                 }
@@ -142,18 +144,15 @@ function Delete() {
 
 $(".restart").on('click', function() {
     let x = new Delete(); 
-    Loader();
-
 });
 
 function Loader() {
     let w = new Newcards(); 
     let y = new Card(); 
-    let z = setInterval(Seconds, 1000);
 
 Moves1.moveCounter = 0; 
 Moves1.rulez(); 
-Match1.matches = 0;
+Match1.matches = -1;
 Zero1.integer = 0;
 Stars(3);
 
