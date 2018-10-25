@@ -42,14 +42,21 @@ const Card = function() {
 }        
 
 function clickedCard(card) { 
-    const i = card.firstChild; // The card clicked on is defined is i.
+    const i = card.firstChild; // The first card clicked on is defined is i.
     var topCard;
-    if (topCard == undefined) {
-        card.classList.add('open', 'show'); 
-    } 
-//    else {
-//        $(".card").prop( "disabled", true);
+    
+    
+    
+//    if (card.class == "") {
+//            $(".card").off('click');
 //    }
+//    
+    
+    if (topCard == undefined) { // if the second card ain't been clicked
+        card.classList.add('open', 'show');
+        $(".open.show").off('click');
+    }
+
      // your code here.
      // Right away, every time a card is clicked, it is visually flipped to open...
     
@@ -59,12 +66,14 @@ function clickedCard(card) {
     if (openCards.length == 0) { 
         openCards.push(card); // ...although this is when the card is actually pushed into the openCards[] array.
         Moves1.add()
-        Moves1.rulez();  
+        Moves1.rulez();
     }
-    
+
     else { 
-        topCard = openCards.pop();   // topCard is defined as the last card placed into the openCards array...
-        $(".card").prop("disabled", true);
+        
+        topCard = openCards.pop(); 
+         //then take the second card
+        // topCard is defined as the last card placed into the 
         if (topCard.firstChild.className === i.className) {  // ...and the two are compared...
         Match1.match(); // ...to form a match.
         } else { 
@@ -150,11 +159,11 @@ function Loader() {
     let w = new Newcards(); 
     let y = new Card(); 
 
-Moves1.moveCounter = 0; 
-Moves1.rulez(); 
-Match1.matches = -1;
-Zero1.integer = 0;
-Stars(3);
+    Moves1.moveCounter = 0; 
+    Moves1.rulez(); 
+    Match1.matches = 0;
+    Zero1.integer = -1;
+    Stars(3);
 
 }
 
