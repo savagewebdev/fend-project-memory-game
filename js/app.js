@@ -57,7 +57,6 @@ function clickedCard(card) {
     }
 
     else { 
-        
         topCard = openCards.pop(); 
          //then take the second card
         // topCard is defined as the last card placed into the 
