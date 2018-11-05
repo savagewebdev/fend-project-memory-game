@@ -43,25 +43,12 @@ const Card = function() {
 
 function clickedCard(card) { 
     const i = card.firstChild; // The first card clicked on is defined is i.
-    var topCard;
-    
-    
-    
-//    if (card.class == "") {
-//            $(".card").off('click');
-//    }
-//    
+    let topCard;
     
     if (topCard == undefined) { // if the second card ain't been clicked
         card.classList.add('open', 'show');
         $(".open.show").off('click');
     }
-
-     // your code here.
-     // Right away, every time a card is clicked, it is visually flipped to open...
-    
-    
-    
 
     if (openCards.length == 0) { 
         openCards.push(card); // ...although this is when the card is actually pushed into the openCards[] array.
@@ -158,7 +145,8 @@ $(".restart").on('click', function() {
 function Loader() {
     let w = new Newcards(); 
     let y = new Card(); 
-
+    
+    let popme = openCards.pop(); 
     Moves1.moveCounter = 0; 
     Moves1.rulez(); 
     Match1.matches = 0;
